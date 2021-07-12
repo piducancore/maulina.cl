@@ -1,5 +1,5 @@
 ---
-title:"Page two"
+title: "Page two"
 ---
 
 # Hi from the second page
