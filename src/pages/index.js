@@ -1,18 +1,22 @@
-import * as React from "react"
+/** @jsx jsx */
+import { jsx, Box, Flex } from "theme-ui"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 
 const IndexPage = () => (
-  <Layout seo={{ title: "Home" }}>
-    <StaticImage
-      src="../images/maulina.png"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="maulina"
-      style={{ marginBottom: `1.45rem` }}
-    />
+  <Layout seo={{ title: "Pronto..." }}>
+    <Flex sx={{ height: 540 }}>
+      <StaticImage
+        src="../images/maulina.png"
+        width={300}
+        placeholder="blurred"
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Maulina"
+        sx={{ m: "auto" }}
+      />
+    </Flex>
   </Layout>
 )
 
