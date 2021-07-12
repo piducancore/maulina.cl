@@ -1,16 +1,22 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import * as React from "react"
+/** @jsx jsx */
+import { jsx, Themed } from "theme-ui"
+import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
 import Seo from "./seo"
+
+const Container = props => (
+  <div
+    {...props}
+    sx={{
+      width: "100%",
+      maxWidth: "container",
+      mx: "auto",
+      px: 3,
+    }}
+  />
+)
 
 const Layout = ({ children, pageContext, seo }) => {
   const data = useStaticQuery(graphql`
@@ -24,28 +30,47 @@ const Layout = ({ children, pageContext, seo }) => {
   `)
 
   return (
-    <>
+    <React.Fragment>
       <Seo title={seo?.title || pageContext?.frontmatter?.title || ""} />
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+          variant: "layout.root",
         }}
       >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
+        {/* <header
+          sx={{
+            width: "100%",
+            variant: "layout.header",
           }}
         >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+          <Container>{data.site.siteMetadata?.title}</Container>
+        </header> */}
+        <main
+          sx={{
+            width: "100%",
+            flex: "1 1 auto",
+            variant: "layout.main",
+          }}
+        >
+          <Container>{children}</Container>
+        </main>
+        {/* <footer
+          sx={{
+            width: "100%",
+            variant: "layout.footer",
+          }}
+        >
+          <Container>
+            <Themed.p sx={{ textAlign: "center" }}>
+              <small>{data.site.siteMetadata?.title}</small>
+            </Themed.p>
+          </Container>
+        </footer> */}
       </div>
-    </>
+    </React.Fragment>
   )
 }
 
