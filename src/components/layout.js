@@ -10,8 +10,9 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Seo from "./seo"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, pageContext, seo }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,6 +25,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <Seo title={seo?.title || pageContext?.frontmatter?.title || ""} />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
