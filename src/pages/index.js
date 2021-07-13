@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Box, Flex } from "theme-ui"
+import { jsx, Flex } from "theme-ui"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
