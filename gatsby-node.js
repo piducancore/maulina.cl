@@ -19,7 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const next = idx === 0 ? null : profiles[idx - 1]
     createPage({
       path: profile.username,
-      component: require.resolve("./src/components/profile"),
+      component: require.resolve("./src/templates/profile"),
       context: {
         contentful_id: profile.contentful_id,
         type: "profilePage",

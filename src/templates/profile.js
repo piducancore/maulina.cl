@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "./layout"
+import Layout from "../components/layout"
 
 export default function ProfilePage({ data, ...props }) {
   const { full_name } = data.contentfulArtista
