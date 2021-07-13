@@ -1,8 +1,8 @@
 import { tosh as light, dark } from "@theme-ui/presets"
 import { merge } from "theme-ui"
 
-// import "@fontsource/playfair-display/400.css"
-// import "@fontsource/playfair-display/700.css"
+import "@fontsource/staatliches/400.css"
+import "@piducancore/fonts-andale-mono"
 
 const theme = merge(light, {
   initialColorModeName: "light",
@@ -33,8 +33,8 @@ const theme = merge(light, {
     },
   },
   fonts: {
-    // body: "Playfair Display",
-    // heading: "Playfair Display",
+    body: "Andale Mono",
+    heading: "Staatliches",
   },
   fontSizes: [16, 18, 20, 24, 32, 48, 64, 72],
   fontWeights: {

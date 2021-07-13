@@ -1231,6 +1231,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/staatliches@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/staatliches/-/staatliches-4.5.0.tgz#299450177621ed44c0706670220a5a0174bf4c0b"
+  integrity sha512-70ekEkdGGjxWpgGMu8NRA6BQ6aW68UTITg0blq0yaUpk4DdOxND3U6hJcmB0R2fALziAJoSxB9I7J4DTrjrBnQ==
+
 "@gatsbyjs/reach-router@^1.3.6":
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/reach-router/-/reach-router-1.3.6.tgz#4e8225836959be247890b66f21a3198a0589e34d"
@@ -1809,6 +1814,11 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
+
+"@piducancore/fonts-andale-mono@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@piducancore/fonts-andale-mono/-/fonts-andale-mono-1.0.1.tgz#27ad26a0b78a9a832d9229843fe71db0980d4cb2"
+  integrity sha512-kAtfkQy42LujeyXZex95jGr1cxOrf+rTP9hJ51j+R75hlfjQgxydtDdS+2K48b/CZYQP5C/Zp5XCfD6PBaG62w==
 
 "@pmmmwh/react-refresh-webpack-plugin@^0.4.3":
   version "0.4.3"
