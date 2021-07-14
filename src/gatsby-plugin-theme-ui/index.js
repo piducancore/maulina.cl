@@ -1,4 +1,4 @@
-import { tosh as light, dark } from "@theme-ui/presets"
+import { tosh as light } from "@theme-ui/presets"
 import { merge } from "theme-ui"
 
 import "@fontsource/staatliches/400.css"
@@ -10,9 +10,18 @@ const theme = merge(light, {
   useRootStyles: true,
   useBodyStyles: false,
   colors: {
+    abc: "#e31b25",
+    def: "#b80611",
+    ghi: "#d0384b",
+    jkl: "#fa525a",
+    mno: "#ea7d85",
+    text: "#0d0106",
+    background: "#f6f4f5",
+
     modes: {
       dark: {
-        ...dark.colors,
+        text: "#f6f4f5",
+        background: "#0d0106",
       },
     },
   },
