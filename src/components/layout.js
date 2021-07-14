@@ -1,10 +1,13 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx, useThemeUI, Themed, Flex, Grid } from "theme-ui"
 import React from "react"
 import PropTypes from "prop-types"
-// import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
+import { SocialIcon } from "react-social-icons"
 
 import Seo from "./seo"
+import Menu from "./menu"
 
 const Container = props => (
   <div
@@ -18,16 +21,34 @@ const Container = props => (
   />
 )
 
+const SocialIcons = () => {
+  const { theme } = useThemeUI()
+  return (
+    <Flex sx={{ flexShrink: 0, my: "auto", ml: "auto" }}>
+      <SocialIcon
+        bgColor="#00000000"
+        fgColor={theme.colors.background}
+        url="https://instagram.com/maulina.cl"
+      />
+      <SocialIcon
+        bgColor="#00000000"
+        fgColor={theme.colors.background}
+        url="https://facebook.com/maulina.cl"
+      />
+    </Flex>
+  )
+}
+
 const Layout = ({ children, pageContext, seo }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
 
   return (
     <React.Fragment>
@@ -40,14 +61,29 @@ const Layout = ({ children, pageContext, seo }) => {
           variant: "layout.root",
         }}
       >
-        {/* <header
+        <header
           sx={{
             width: "100%",
             variant: "layout.header",
           }}
         >
-          <Container>{data.site.siteMetadata?.title}</Container>
-        </header> */}
+          <Container>
+            <Flex>
+              <Link to="/" sx={{ mt: 2, display: "flex" }}>
+                <StaticImage
+                  src="../images/maulina.png"
+                  height={48}
+                  quality={95}
+                  placeholder="none"
+                  formats={["AUTO", "WEBP", "AVIF"]}
+                  alt={data.site.siteMetadata?.title}
+                  objectFit="contain" // quality={95}
+                />
+              </Link>
+              <Menu sx={{ ml: "auto" }} />
+            </Flex>
+          </Container>
+        </header>
         <main
           sx={{
             width: "100%",
@@ -57,18 +93,38 @@ const Layout = ({ children, pageContext, seo }) => {
         >
           <Container>{children}</Container>
         </main>
-        {/* <footer
+        <footer
           sx={{
             width: "100%",
             variant: "layout.footer",
           }}
         >
           <Container>
-            <Themed.p sx={{ textAlign: "center" }}>
-              <small>{data.site.siteMetadata?.title}</small>
-            </Themed.p>
+            <Grid columns={[1, 2]} gap={4}>
+              <Flex sx={{ gridRow: [1, 1], gridColumn: [1, 2] }}>
+                <Themed.p sx={{ fontSize: 0, my: "auto", flex: 1 }}>
+                  Proyecto... frase bonita o algo así.
+                </Themed.p>
+                <SocialIcons />
+              </Flex>
+              <Flex sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
+                <StaticImage
+                  src="../images/gob.png"
+                  placeholder="none"
+                  formats={["AUTO", "WEBP", "AVIF"]}
+                  alt={"Ministerio de las Culturas, las Artes y el Patrimonio"}
+                  objectFit="contain"
+                  quality={95}
+                  sx={{ width: 150, flexShrink: 0, mr: 3 }}
+                />
+                <Themed.p sx={{ fontSize: 0, my: "auto" }}>
+                  Proyecto financiado por el Fondo Nacional de Desarrollo
+                  Cultural y las Artes, 2021.
+                </Themed.p>
+              </Flex>
+            </Grid>
           </Container>
-        </footer> */}
+        </footer>
       </div>
     </React.Fragment>
   )
