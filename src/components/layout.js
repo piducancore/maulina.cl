@@ -26,11 +26,13 @@ const SocialIcons = () => {
   return (
     <Flex sx={{ flexShrink: 0, my: "auto", ml: "auto" }}>
       <SocialIcon
+        target="_blank"
         bgColor="#00000000"
         fgColor={theme.colors.background}
         url="https://instagram.com/maulina.cl"
       />
       <SocialIcon
+        target="_blank"
         bgColor="#00000000"
         fgColor={theme.colors.background}
         url="https://facebook.com/maulina.cl"
