@@ -2,7 +2,47 @@
 import { jsx, Flex, Themed } from "theme-ui"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { alpha } from "@theme-ui/color"
+
+function Thumbnail({ image, alt }) {
+  return (
+    <div sx={{ position: "relative" }}>
+      <GatsbyImage
+        placeholder="blurred"
+        image={image.gatsbyImageData}
+        alt={alt}
+        objectFit="contain"
+        imgStyle={{
+          mixBlendMode: "multiply",
+        }}
+        sx={{
+          transition: ".4s",
+          m: 1,
+          // filter: "grayscale(1)",
+          ":hover": { bg: "secondary" /* , filter: "none" */ },
+          ":hover~#pipi": {
+            opacity: 1,
+          },
+        }}
+      />
+      <Themed.p
+        id="pipi"
+        sx={{
+          transition: ".8s",
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          ml: 3,
+          mb: 2,
+          opacity: 0,
+          color: "background",
+          fontWeight: "body",
+        }}
+      >
+        {alt}
+      </Themed.p>
+    </div>
+  )
+}
 
 export default function Fotografas() {
   const data = useStaticQuery(graphql`
@@ -12,57 +52,23 @@ export default function Fotografas() {
           contentful_id
           username
           profile_picture {
-            gatsbyImageData(height: 320)
+            gatsbyImageData(
+              height: 240
+              quality: 100
+              # transformOptions: { grayscale: true }
+            )
           }
         }
       }
     }
   `)
+  const { nodes } = data.allContentfulArtista
   return (
-    <Flex sx={{ mb: 6, flexWrap: "wrap" }}>
-      {data.allContentfulArtista.nodes.map((artista, idx) => {
+    <Flex sx={{ mb: 6, flexWrap: "wrap", justifyContent: "center" }}>
+      {nodes.map(({ username, profile_picture }) => {
         return (
-          <Themed.a
-            as={Link}
-            to={"/" + artista.username}
-            sx={{ m: 1, position: "relative" }}
-          >
-            <GatsbyImage
-              key={artista.username}
-              placeholder="blurred"
-              image={artista.profile_picture.gatsbyImageData}
-              alt={artista.username}
-              objectFit="contain"
-            />
-            <div
-              sx={{
-                position: "absolute",
-                zIndex: 2000,
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                // bg: "secondary",
-                ":hover": {
-                  bg: alpha("secondary", 0.8),
-                },
-                p: 3,
-              }}
-            >
-              <Themed.h3
-                sx={{
-                  color: "#00000000",
-                  width: "100%",
-                  height: "100%",
-                  my: 0,
-                  ":hover": {
-                    color: "background",
-                  },
-                }}
-              >
-                {artista.username}
-              </Themed.h3>
-            </div>
+          <Themed.a key={username} as={Link} to={"/" + username}>
+            <Thumbnail image={profile_picture} alt={username} />
           </Themed.a>
         )
       })}
