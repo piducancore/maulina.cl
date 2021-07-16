@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "maulina.cl",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Comunidad de fotografía",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "@piducancore",
   "dependencies": {
     "@fontsource/staatliches": "^4.5.0",
     "@mdx-js/mdx": "^1.6.22",
@@ -12,7 +12,6 @@
     "@theme-ui/color": "^0.10.0",
     "@theme-ui/presets": "^0.10.0",
     "gatsby": "^3.9.1",
-    "gatsby-plugin-gatsby-cloud": "^2.9.0",
     "gatsby-plugin-image": "^1.9.0",
     "gatsby-plugin-manifest": "^3.9.0",
     "gatsby-plugin-mdx": "^2.9.0",
@@ -24,8 +23,8 @@
     "gatsby-source-filesystem": "^3.9.0",
     "gatsby-transformer-sharp": "^3.9.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-social-icons": "^5.5.1",
     "theme-ui": "^0.10.0"
@@ -48,9 +47,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/piducancore/maulina.cl"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/piducancore/maulina.cl/issues"
   }
 }
