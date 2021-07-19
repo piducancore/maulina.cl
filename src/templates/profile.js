@@ -1,15 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Profile from "../components/profile"
 
 export default function ProfilePage({ data, ...props }) {
-  const { full_name } = data.contentfulArtista
-  return (
-    <Layout seo={{ title: full_name }}>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </Layout>
-  )
+  const { contentfulArtista } = data
+  return <Profile data={contentfulArtista} />
 }
 
 export const ProfileQuery = graphql`
@@ -31,6 +27,10 @@ export const ProfileQuery = graphql`
         gatsbyImageData
       }
       presentation {
+        childMdx {
+          body
+        }
+
         childrenMdx {
           body
         }
