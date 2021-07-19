@@ -79,6 +79,8 @@ const theme = merge(light, {
       bg: "secondary",
       color: "background",
       transition: ".4s",
+      letterSpacing: 4,
+      px: 4,
       "&:hover": {
         bg: "background",
         color: "secondary",
@@ -89,6 +91,7 @@ const theme = merge(light, {
     primary: {
       p: 3,
       mb: 6,
+      maxWidth: [null, "80%"],
     },
     label: {
       fontSize: 1,
@@ -169,6 +172,8 @@ const theme = merge(light, {
         color: "text",
       },
       "*": {
+        transition: ".4s",
+
         userSelect: "none",
         scrollbarWidth: "thin" /* "auto" or "thin" */,
         scrollbarColor: theme =>
