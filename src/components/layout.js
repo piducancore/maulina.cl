@@ -21,20 +21,20 @@ const Container = props => (
   />
 )
 
-const SocialIcons = () => {
+export const SocialIcons = ({ inverted }) => {
   const { theme } = useThemeUI()
   return (
-    <Flex sx={{ flexShrink: 0, my: "auto", ml: "auto" }}>
+    <Flex sx={{ flexShrink: 0, my: "auto", mx: "auto" }}>
       <SocialIcon
         target="_blank"
         bgColor="#00000000"
-        fgColor={theme.colors.background}
+        fgColor={inverted ? theme.colors.background : theme.colors.text}
         url="https://instagram.com/maulina.cl"
       />
       <SocialIcon
         target="_blank"
         bgColor="#00000000"
-        fgColor={theme.colors.background}
+        fgColor={inverted ? theme.colors.background : theme.colors.text}
         url="https://facebook.com/maulina.cl"
       />
     </Flex>
@@ -107,7 +107,7 @@ const Layout = ({ children, pageContext, seo }) => {
                 <Themed.p sx={{ fontSize: 0, my: "auto", flex: 1 }}>
                   Proyecto... frase bonita o algo así.
                 </Themed.p>
-                <SocialIcons />
+                <SocialIcons inverted />
               </Flex>
               <Flex sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
                 <StaticImage
