@@ -5,10 +5,11 @@ import "@fontsource/staatliches/400.css"
 import "@piducancore/fonts-andale-mono"
 
 const theme = merge(light, {
-  initialColorModeName: "light",
-  useColorSchemeMediaQuery: true,
-  useRootStyles: true,
-  useBodyStyles: false,
+  config: {
+    initialColorModeName: "light",
+    useColorSchemeMediaQuery: false,
+    useRootStyles: true,
+  },
   colors: {
     secondary: "#e31b25",
     def: "#b80611",
@@ -51,17 +52,13 @@ const theme = merge(light, {
   fontSizes: [14, 18, 20, 24, 32, 48, 64, 72],
   fontWeights: {
     body: 400,
-    heading: 700,
+    heading: 400,
     bold: 700,
   },
   grids: {
     primary: {
       gap: 4,
     },
-    // "cart-item": {
-    //   bg: "red",
-    //   gap: 0,
-    // },
   },
   text: {
     truncate: {
@@ -126,7 +123,6 @@ const theme = merge(light, {
   links: {
     nav: {
       display: ["none", "inherit"],
-
       // my: 4,
       // mx: 3,
       // fontWeight: "body",
@@ -142,15 +138,13 @@ const theme = merge(light, {
   },
   styles: {
     root: {
-      ".Toastify__toast-container": { p: 0 },
-      ".Toastify__toast-body": { p: 0 },
-      ".Toastify__toast--default": { p: 0 },
       ".slick-track": { display: "flex", height: "100%" },
       ".slick-slide": { my: "auto" },
       body: {
         margin: "0px",
       },
       overflowY: "scroll",
+
       // scrollbarWidth: "thin" /* "auto" or "thin" */,
       // scrollbarColor: theme => `${theme.colors.primary} #ffffff00`,
       // "*::-webkit-scrollbar": {
@@ -167,14 +161,16 @@ const theme = merge(light, {
       "*:focus": {
         outline: "none",
       },
+
       "*::selection": {
-        backgroundColor: "secondary",
-        color: "text",
+        bg: "secondary",
+        color: "background",
       },
+
       "*": {
         transition: ".4s",
 
-        userSelect: "none",
+        // userSelect: "none",
         scrollbarWidth: "thin" /* "auto" or "thin" */,
         scrollbarColor: theme =>
           `${theme.colors.primary} #ffffff00` /* scroll thumb and track */,
@@ -188,6 +184,9 @@ const theme = merge(light, {
         color: "secondary",
       },
       cursor: "pointer",
+    },
+    h3: {
+      letterSpacing: 4,
     },
   },
 })
