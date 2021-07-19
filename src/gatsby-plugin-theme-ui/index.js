@@ -10,13 +10,14 @@ const theme = merge(light, {
   useRootStyles: true,
   useBodyStyles: false,
   colors: {
-    abc: "#e31b25",
+    secondary: "#e31b25",
     def: "#b80611",
     ghi: "#d0384b",
     jkl: "#fa525a",
     mno: "#ea7d85",
     text: "#0d0106",
-    background: "#f6f4f5",
+    gray: "#393939",
+    // background: "#f6f4f5",
 
     modes: {
       dark: {
@@ -31,21 +32,23 @@ const theme = merge(light, {
   layout: {
     header: {
       py: 2,
-      position: "sticky",
-      top: 0,
+      // position: "sticky",
+      // top: 0,
       bg: "background",
       zIndex: 100,
-      boxShadow: "0 0 8px rgba(0, 0, 0, 0.125)",
+      // boxShadow: "0 0 8px rgba(0, 0, 0, 0.125)",
     },
     footer: {
-      bg: "background",
+      bg: "gray",
+      color: "background",
+      py: 3,
     },
   },
   fonts: {
     body: "Andale Mono",
     heading: "Staatliches",
   },
-  fontSizes: [16, 18, 20, 24, 32, 48, 64, 72],
+  fontSizes: [14, 18, 20, 24, 32, 48, 64, 72],
   fontWeights: {
     body: 400,
     heading: 700,
@@ -70,41 +73,34 @@ const theme = merge(light, {
   },
   buttons: {
     primary: {
-      border: theme => `1px solid ${theme.colors.primary}`,
-      borderRadius: 0,
-      cursor: "pointer",
-      bg: "primary",
-      color: "background",
-      "&:hover": {
-        bg: "background",
-        color: "primary",
-      },
-    },
-    picker: {
-      background: "none",
-      color: "text",
+      border: theme => `1px solid ${theme.colors.secondary}`,
       borderRadius: 360,
       cursor: "pointer",
+      bg: "secondary",
+      color: "background",
+      transition: ".4s",
       "&:hover": {
-        bg: "#eee",
-        color: "background",
+        bg: "background",
+        color: "secondary",
       },
     },
   },
   forms: {
     primary: {
-      // bg: "red",
-      // p: 3,
-      // maxWidth: ["100%", 640],
-      // mx: "auto",
+      p: 3,
+      mb: 6,
     },
     label: {
-      fontSize: 2,
-      fontWeight: "bold",
+      fontSize: 1,
+      display: "block",
+      textAlign: "center",
+      letterSpacing: 4,
+      mb: 1,
     },
     input: {
       fontFamily: "monospace",
-      borderColor: "gray",
+      bg: "muted",
+      border: "none",
       mb: 3,
       "&:focus": {
         borderColor: "primary",
@@ -114,7 +110,8 @@ const theme = merge(light, {
     },
     textarea: {
       fontFamily: "monospace",
-      borderColor: "gray",
+      bg: "muted",
+      border: "none",
       mb: 3,
       "&:focus": {
         borderColor: "primary",
@@ -151,18 +148,19 @@ const theme = merge(light, {
         margin: "0px",
       },
       overflowY: "scroll",
-      scrollbarWidth: "thin" /* "auto" or "thin" */,
-      scrollbarColor: theme => `${theme.colors.primary} #ffffff00`,
-      "*::-webkit-scrollbar": {
-        width: "8px",
-        height: "8px",
-      },
-      "*::-webkit-scrollbar-track": {
-        bg: "#00000000",
-      },
-      "*::-webkit-scrollbar-thumb": {
-        bg: "primary",
-      },
+      // scrollbarWidth: "thin" /* "auto" or "thin" */,
+      // scrollbarColor: theme => `${theme.colors.primary} #ffffff00`,
+      // "*::-webkit-scrollbar": {
+      //   width: "8px",
+      //   height: "8px",
+      // },
+      // "*::-webkit-scrollbar-track": {
+      //   bg: "#00000000",
+      // },
+      // "*::-webkit-scrollbar-thumb": {
+      //   bg: "primary",
+      // },
+
       "*:focus": {
         outline: "none",
       },
@@ -171,6 +169,7 @@ const theme = merge(light, {
         color: "text",
       },
       "*": {
+        userSelect: "none",
         scrollbarWidth: "thin" /* "auto" or "thin" */,
         scrollbarColor: theme =>
           `${theme.colors.primary} #ffffff00` /* scroll thumb and track */,
