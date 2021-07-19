@@ -19,7 +19,7 @@ export default function Menu({ ...props }) {
       <MenuItem>Somos</MenuItem>
       <MenuItem>Fotógrafas</MenuItem>
       <MenuItem>Galería</MenuItem>
-      <MenuItem>Participa</MenuItem>
+      <MenuItem>Blog</MenuItem>
       <MenuItem>Contacto</MenuItem>
     </div>
   )
