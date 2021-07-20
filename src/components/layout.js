@@ -34,6 +34,7 @@ const Layout = ({ children, pageContext, seo }) => {
   return (
     <React.Fragment>
       <Seo title={seo?.title || pageContext?.frontmatter?.title || ""} />
+      <DrawerMenu isOpen={isOpen} close={() => setOpen(false)} />
       <div sx={{ variant: "layout.root" }}>
         <header
           sx={{
@@ -71,7 +72,6 @@ const Layout = ({ children, pageContext, seo }) => {
             </Flex>
           </Container>
         </header>
-        <DrawerMenu isOpen={isOpen} close={() => setOpen(false)} />
         <main sx={{ variant: "layout.main" }}>
           <Container>{children}</Container>
         </main>

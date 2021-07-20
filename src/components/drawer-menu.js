@@ -10,7 +10,7 @@ export default function DrawerMenu({ isOpen, close }) {
   return (
     <div
       sx={{
-        position: "absolute",
+        position: "fixed",
         height: "100%",
         width: "100%",
         left: isOpen ? "0%" : "-100%",
