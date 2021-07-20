@@ -11,8 +11,8 @@ export default function DrawerMenu({ isOpen, close }) {
     <div
       sx={{
         position: "fixed",
-        height: "100%",
-        width: "100%",
+        height: "100vh",
+        width: "100vw",
         left: isOpen ? "0%" : "-100%",
         bg: alpha("secondary", 0.96),
         // display: "flex",
