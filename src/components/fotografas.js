@@ -17,8 +17,8 @@ function Thumbnail({ image, alt }) {
         }}
         sx={{
           width: ["100%", null],
-          filter: "grayscale(1)",
-          ":hover": { bg: "secondary", filter: "none" },
+          // filter: "grayscale(1)",
+          ":hover": { bg: "secondary" /* filter: "none" */ },
           ":hover~#pipi": {
             opacity: 1,
           },
@@ -56,7 +56,7 @@ export default function Fotografas() {
             gatsbyImageData(
               height: 320
               quality: 100
-              placeholder: NONE
+              placeholder: DOMINANT_COLOR
               # transformOptions: { grayscale: true }
             )
           }
