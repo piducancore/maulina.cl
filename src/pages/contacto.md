@@ -4,7 +4,7 @@ title: "Contacto"
 
 import { Grid, Box } from "theme-ui"
 import Form from "../components/form"
-import { SocialIcons } from "../components/layout"
+import SocialIcons from "../components/social-icons"
 
 <Grid columns={[1,2]}>
 
