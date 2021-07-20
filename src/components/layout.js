@@ -34,14 +34,7 @@ const Layout = ({ children, pageContext, seo }) => {
   return (
     <React.Fragment>
       <Seo title={seo?.title || pageContext?.frontmatter?.title || ""} />
-      <div
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-          variant: "layout.root",
-        }}
-      >
+      <div sx={{ variant: "layout.root" }}>
         <header
           sx={{
             variant: "layout.header",

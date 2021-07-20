@@ -11,8 +11,8 @@ const theme = merge(light, {
     useRootStyles: true,
   },
   colors: {
-    secondary: "#e31b25",
-    def: "#b80611",
+    abc: "#e31b25",
+    secondary: "#b80611",
     ghi: "#d0384b",
     jkl: "#fa525a",
     mno: "#ea7d85",
@@ -31,6 +31,11 @@ const theme = merge(light, {
     container: 1280,
   },
   layout: {
+    root: {
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "100vh",
+    },
     container: {
       width: "100%",
       maxWidth: "container",
@@ -152,7 +157,7 @@ const theme = merge(light, {
       ".slick-track": { display: "flex", height: "100%" },
       ".slick-slide": { my: "auto" },
       body: {
-        margin: "0px",
+        margin: "0px !important",
       },
       overflowY: "scroll",
 
