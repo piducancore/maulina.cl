@@ -31,15 +31,26 @@ const theme = merge(light, {
     container: 1280,
   },
   layout: {
+    container: {
+      width: "100%",
+      maxWidth: "container",
+      mx: "auto",
+      px: 3,
+    },
     header: {
+      width: "100%",
       py: 2,
-      // position: "sticky",
-      // top: 0,
-      bg: "background",
       zIndex: 100,
+      position: "sticky",
+      top: 0,
       // boxShadow: "0 0 8px rgba(0, 0, 0, 0.125)",
     },
+    main: {
+      width: "100%",
+      flex: "1 1 auto",
+    },
     footer: {
+      width: "100%",
       bg: "gray",
       color: "background",
       py: 3,
@@ -49,7 +60,7 @@ const theme = merge(light, {
     body: "Andale Mono",
     heading: "Staatliches",
   },
-  fontSizes: [14, 18, 20, 24, 32, 48, 64, 72],
+  fontSizes: [10, 12, 14, 18, 20, 24, 32, 48, 64, 72],
   fontWeights: {
     body: 400,
     heading: 400,
@@ -169,11 +180,9 @@ const theme = merge(light, {
 
       "*": {
         transition: ".4s",
-
         // userSelect: "none",
-        scrollbarWidth: "thin" /* "auto" or "thin" */,
-        scrollbarColor: theme =>
-          `${theme.colors.primary} #ffffff00` /* scroll thumb and track */,
+        // scrollbarWidth: "thin" /* "auto" or "thin" */,
+        // scrollbarColor: theme => `${theme.colors.primary} #ffffff00` /* scroll thumb and track */,
       },
     },
     a: {

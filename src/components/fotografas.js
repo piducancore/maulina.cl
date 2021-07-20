@@ -5,7 +5,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 function Thumbnail({ image, alt }) {
   return (
-    <div sx={{ position: "relative" }}>
+    <div sx={{ position: "relative", m: 1 }}>
       <GatsbyImage
         placeholder="blurred"
         image={image.gatsbyImageData}
@@ -13,12 +13,12 @@ function Thumbnail({ image, alt }) {
         objectFit="contain"
         imgStyle={{
           mixBlendMode: "multiply",
+          pointerEvents: "none",
         }}
         sx={{
-          transition: ".4s",
-          m: 1,
-          // filter: "grayscale(1)",
-          ":hover": { bg: "secondary" /* , filter: "none" */ },
+          width: ["100%", null],
+          filter: "grayscale(1)",
+          ":hover": { bg: "secondary", filter: "none" },
           ":hover~#pipi": {
             opacity: 1,
           },
@@ -36,6 +36,7 @@ function Thumbnail({ image, alt }) {
           opacity: 0,
           color: "background",
           fontWeight: "body",
+          pointerEvents: "none",
         }}
       >
         {alt}
@@ -53,8 +54,9 @@ export default function Fotografas() {
           username
           profile_picture {
             gatsbyImageData(
-              height: 240
+              height: 320
               quality: 100
+              placeholder: NONE
               # transformOptions: { grayscale: true }
             )
           }
@@ -64,7 +66,14 @@ export default function Fotografas() {
   `)
   const { nodes } = data.allContentfulArtista
   return (
-    <Flex sx={{ mb: 6, flexWrap: "wrap", justifyContent: "center" }}>
+    <Flex
+      sx={{
+        mb: 6,
+        flexWrap: "wrap",
+        justifyContent: "center",
+        flexDirection: ["column", "row"],
+      }}
+    >
       {nodes.map(({ username, profile_picture }) => {
         return (
           <Themed.a key={username} as={Link} to={"/" + username}>

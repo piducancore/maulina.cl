@@ -10,15 +10,15 @@ export default function Profile({ data }) {
     data
   return (
     <Layout seo={{ title: full_name }}>
-      <Grid columns={[1, 2]}>
-        <Box>
-          <Themed.h3>{full_name}</Themed.h3>
-          <Themed.h3>
+      <Grid columns={[1, 2]} sx={{ mb: 6 }}>
+        <Box sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
+          <Themed.h3 sx={{ mb: 0 }}>{full_name}</Themed.h3>
+          <Themed.h3 sx={{ mt: 0 }}>
             {residence}, {birthdate.slice(0, 4)}
           </Themed.h3>
           <MDXRenderer>{presentation.childMdx.body}</MDXRenderer>
         </Box>
-        <Box>
+        <Box sx={{ gridRow: [1, 1], gridColumn: [1, 2] }}>
           <GatsbyImage
             placeholder="blurred"
             image={profile_picture.gatsbyImageData}
@@ -29,14 +29,8 @@ export default function Profile({ data }) {
               pointerEvents: "none",
             }}
             sx={{
-              transition: ".4s",
-              m: 1,
-              // filter: "grayscale(1)",
-              ":hover": { bg: "secondary" /* , filter: "none" */ },
-              ":hover~#pipi": {
-                opacity: 1,
-              },
-              width: ["100%", null],
+              ":hover": { bg: "secondary" },
+              width: "100%",
             }}
           />
         </Box>

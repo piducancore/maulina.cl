@@ -1,57 +1,36 @@
 /** @jsx jsx */
-import { jsx, useThemeUI, Themed, Flex, Grid } from "theme-ui"
-import React from "react"
+import { jsx, Themed, Flex, Grid, Container } from "theme-ui"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { /* useStaticQuery, graphql, */ Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { SocialIcon } from "react-social-icons"
+import { alpha } from "@theme-ui/color"
 
 import Seo from "./seo"
 import Menu from "./menu"
-
-const Container = props => (
-  <div
-    {...props}
-    sx={{
-      width: "100%",
-      maxWidth: "container",
-      mx: "auto",
-      px: 3,
-    }}
-  />
-)
-
-export const SocialIcons = ({ inverted }) => {
-  const { theme } = useThemeUI()
-  return (
-    <Flex sx={{ flexShrink: 0, my: "auto", mx: "auto" }}>
-      <SocialIcon
-        target="_blank"
-        bgColor="#00000000"
-        fgColor={inverted ? theme.colors.background : theme.colors.text}
-        url="https://instagram.com/maulina.cl"
-      />
-      <SocialIcon
-        target="_blank"
-        bgColor="#00000000"
-        fgColor={inverted ? theme.colors.background : theme.colors.text}
-        url="https://facebook.com/maulina.cl"
-      />
-    </Flex>
-  )
-}
+import Logo from "./logo"
+import DrawerMenu from "./drawer-menu"
+import SocialIcons from "./social-icons"
 
 const Layout = ({ children, pageContext, seo }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
 
+  const [isOpen, setOpen] = useState(false)
+
+  // disable context menu
+  useEffect(() => {
+    document.addEventListener("contextmenu", e => {
+      e.preventDefault()
+    })
+  })
   return (
     <React.Fragment>
       <Seo title={seo?.title || pageContext?.frontmatter?.title || ""} />
@@ -65,42 +44,45 @@ const Layout = ({ children, pageContext, seo }) => {
       >
         <header
           sx={{
-            width: "100%",
             variant: "layout.header",
+            bg: isOpen ? "#00000000" : alpha("background", 0.96),
           }}
         >
           <Container>
-            <Flex>
-              <Link to="/" sx={{ mt: 2, display: "flex" }}>
-                <StaticImage
+            <Flex sx={{ width: "100%", flexDirection: ["row-reverse", "row"] }}>
+              <Link
+                to="/"
+                sx={{ my: "auto", display: "flex", height: [32, 48] }}
+              >
+                {/* <StaticImage
                   src="../images/maulina.png"
                   height={48}
-                  quality={95}
-                  placeholder="none"
+                  quality={100}
+                  layout="constrained"
+                  placeholder="blurred"
                   formats={["AUTO", "WEBP", "AVIF"]}
                   alt={data.site.siteMetadata?.title}
-                  objectFit="contain" // quality={95}
-                />
+                  objectFit="contain"
+                  imgStyle={{
+                    marginLeft: "auto",
+                    width: "auto",
+                  }}
+                /> */}
+                <Logo height={"100%"} inverted={isOpen} />
               </Link>
-              <Menu sx={{ ml: "auto" }} />
+              <Menu
+                color={isOpen ? "background" : "text"}
+                onClick={() => setOpen(!isOpen)}
+                sx={{ my: "auto", mr: ["auto", 0], ml: [0, "auto"] }}
+              />
             </Flex>
           </Container>
         </header>
-        <main
-          sx={{
-            width: "100%",
-            flex: "1 1 auto",
-            variant: "layout.main",
-          }}
-        >
+        <DrawerMenu isOpen={isOpen} close={() => setOpen(false)} />
+        <main sx={{ variant: "layout.main" }}>
           <Container>{children}</Container>
         </main>
-        <footer
-          sx={{
-            width: "100%",
-            variant: "layout.footer",
-          }}
-        >
+        <footer sx={{ variant: "layout.footer" }}>
           <Container>
             <Grid columns={[1, 2]} gap={4}>
               <Flex sx={{ gridRow: [1, 1], gridColumn: [1, 2] }}>
