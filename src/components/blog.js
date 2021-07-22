@@ -47,7 +47,6 @@ export default function Blog() {
           </div>
         )
       })}
-      <pre>{JSON.stringify(nodes, null, 2)}</pre>
     </Box>
   )
 }
