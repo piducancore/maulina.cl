@@ -2,6 +2,8 @@
 title: "Blog"
 ---
 
+import Blog from "../components/blog"
+
 ## Blog
 
-x x x
+<Blog />
