@@ -1,9 +1,0 @@
----
-title: "Blog"
----
-
-import Blog from "../components/blog"
-
-## Blog
-
-<Blog />
