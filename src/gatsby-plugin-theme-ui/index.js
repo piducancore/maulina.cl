@@ -58,7 +58,7 @@ const theme = merge(light, {
       width: "100%",
       bg: "gray",
       color: "background",
-      py: 3,
+      py: 4,
     },
   },
   fonts: {
@@ -201,6 +201,9 @@ const theme = merge(light, {
     },
     h3: {
       letterSpacing: 4,
+    },
+    img: {
+      width: "100%",
     },
   },
 })
