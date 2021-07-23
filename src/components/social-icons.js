@@ -2,11 +2,11 @@
 import { jsx, useThemeUI, Flex } from "theme-ui"
 import { SocialIcon } from "react-social-icons"
 
-export default function SocialIcons({ inverted }) {
+export default function SocialIcons({ inverted, ...props }) {
   const { theme } = useThemeUI()
   const { background, text } = theme.colors
   return (
-    <Flex sx={{ flexShrink: 0, my: "auto", mx: "auto" }}>
+    <Flex>
       <SocialIcon
         target="_blank"
         bgColor="#00000000"

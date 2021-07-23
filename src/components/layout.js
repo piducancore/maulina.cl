@@ -2,7 +2,7 @@
 import { jsx, Themed, Flex, Grid, Container } from "theme-ui"
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
-import { /* useStaticQuery, graphql, */ Link } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { alpha } from "@theme-ui/color"
 
@@ -13,15 +13,16 @@ import DrawerMenu from "./drawer-menu"
 import SocialIcons from "./social-icons"
 
 const Layout = ({ children, pageContext, seo }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
+  const { site } = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }
+  `)
 
   const [isOpen, setOpen] = useState(false)
 
@@ -31,6 +32,7 @@ const Layout = ({ children, pageContext, seo }) => {
       e.preventDefault()
     })
   })
+
   return (
     <React.Fragment>
       <Seo title={seo?.title || pageContext?.frontmatter?.title || ""} />
@@ -79,10 +81,10 @@ const Layout = ({ children, pageContext, seo }) => {
           <Container>
             <Grid columns={[1, 2]} gap={4}>
               <Flex sx={{ gridRow: [1, 1], gridColumn: [1, 2] }}>
-                <Themed.p sx={{ fontSize: 0, my: "auto", flex: 1 }}>
-                  Proyecto... frase bonita o algo así.
+                <Themed.p sx={{ mb: "auto", flex: 1 }}>
+                  {site.siteMetadata.title} {site.siteMetadata.description}
                 </Themed.p>
-                <SocialIcons inverted />
+                <SocialIcons inverted sx={{ mb: "auto" }} />
               </Flex>
               <Flex sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
                 <StaticImage
@@ -94,7 +96,7 @@ const Layout = ({ children, pageContext, seo }) => {
                   quality={95}
                   sx={{ width: 150, flexShrink: 0, mr: 3 }}
                 />
-                <Themed.p sx={{ fontSize: 0, my: "auto" }}>
+                <Themed.p sx={{ mt: "auto", mb: 0 }}>
                   Proyecto financiado por el Fondo Nacional de Desarrollo
                   Cultural y las Artes, 2021.
                 </Themed.p>
