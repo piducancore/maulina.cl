@@ -4,7 +4,7 @@ module.exports = {
     title: `Maulina`,
     description: `Comunidad de fotografía.`,
     author: `@marcelavaldes`,
-    siteUrl: `https://maulina.cl/`,
+    siteUrl: `https://maulina.cl`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
