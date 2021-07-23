@@ -14,6 +14,14 @@ export const ArticleQuery = graphql`
       contentful_id
       title
       date
+      image {
+        gatsbyImageData(
+          height: 1280
+          quality: 100
+          placeholder: DOMINANT_COLOR
+          # transformOptions: { grayscale: true }
+        )
+      }
       content {
         childMdx {
           body
