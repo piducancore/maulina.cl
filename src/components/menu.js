@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import slugify from "slugify"
 import React from "react"
 
-const items = ["Somos", "Fotógrafas", "Galería", "Blog", "Contacto"]
+const items = ["Somos", "Fotógrafas", "Blog", "Contacto"]
 
 export function MenuMobile() {
   return (

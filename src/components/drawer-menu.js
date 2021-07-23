@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import slugify from "slugify"
 import { alpha } from "@theme-ui/color"
 
-export const items = ["Somos", "Fotógrafas", "Galería", "Blog", "Contacto"]
+export const items = ["Somos", "Fotógrafas", "Blog", "Contacto"]
 
 export default function DrawerMenu({ isOpen, close }) {
   return (
