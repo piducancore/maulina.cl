@@ -53,12 +53,13 @@ const theme = merge(light, {
     main: {
       width: "100%",
       flex: "1 1 auto",
+      pb: 6,
     },
     footer: {
       width: "100%",
       bg: "gray",
       color: "background",
-      py: 4,
+      py: 3,
     },
   },
   fonts: {

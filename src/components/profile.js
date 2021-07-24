@@ -4,13 +4,22 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "./layout"
+import Gallery from "./gallery"
 
 export default function Profile({ data }) {
-  const { full_name, residence, birthdate, presentation, profile_picture } =
-    data
+  const {
+    full_name,
+    residence,
+    birthdate,
+    presentation,
+    profile_picture,
+    featured,
+    gallery,
+  } = data
   return (
     <Layout seo={{ title: full_name }}>
-      <Grid columns={[1, 2]} sx={{ mb: 6 }}>
+      <Gallery featured={featured} gallery={gallery} />
+      <Grid columns={[1, 2]} sx={{ mt: 3, mb: 6 }}>
         <Box sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
           <Themed.h3 sx={{ mb: 0 }}>{full_name}</Themed.h3>
           <Themed.h3 sx={{ mt: 0 }}>
@@ -18,7 +27,15 @@ export default function Profile({ data }) {
           </Themed.h3>
           <MDXRenderer>{presentation.childMdx.body}</MDXRenderer>
         </Box>
-        <Box sx={{ gridRow: [1, 1], gridColumn: [1, 2] }}>
+        <Box
+          sx={{
+            gridRow: [1, 1],
+            gridColumn: [1, 2],
+            position: [null, "sticky"],
+            alignSelf: [null, "start"],
+            top: [null, 88],
+          }}
+        >
           <GatsbyImage
             placeholder="blurred"
             image={profile_picture.gatsbyImageData}
@@ -35,8 +52,6 @@ export default function Profile({ data }) {
           />
         </Box>
       </Grid>
-
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
     </Layout>
   )
 }

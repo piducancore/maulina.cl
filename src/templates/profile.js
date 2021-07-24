@@ -21,9 +21,11 @@ export const ProfileQuery = graphql`
         gatsbyImageData
       }
       featured {
+        title
         gatsbyImageData
       }
       gallery {
+        title
         gatsbyImageData
       }
       presentation {
