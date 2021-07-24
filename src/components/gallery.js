@@ -5,7 +5,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function Gallery({ featured, gallery }) {
   return (
-    <div sx={{ columnCount: [2, 3] }}>
+    <div sx={{ columnCount: [2, 3, 4] }}>
       <GatsbyImage
         image={featured.gatsbyImageData}
         alt={featured.title}

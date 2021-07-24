@@ -9,12 +9,9 @@ export default function Fotografas({ data }) {
   const { nodes } = data.allContentfulArtista
   return (
     <Layout seo={{ title: "Fotógrafas" }}>
-      <Flex
+      <div
         sx={{
-          mb: 6,
-          flexWrap: "wrap",
-          justifyContent: "center",
-          flexDirection: ["column", "row"],
+          columnCount: [2, 3, 4],
         }}
       >
         {nodes.map(({ username, profile_picture }) => {
@@ -24,7 +21,7 @@ export default function Fotografas({ data }) {
             </Themed.a>
           )
         })}
-      </Flex>
+      </div>
     </Layout>
   )
 }
@@ -37,7 +34,7 @@ export const query = graphql`
         username
         profile_picture {
           gatsbyImageData(
-            height: 320
+            width: 320
             quality: 100
             placeholder: DOMINANT_COLOR
             # transformOptions: { grayscale: true }
