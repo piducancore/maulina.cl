@@ -13,6 +13,7 @@ export default function Thumbnail({ image, alt }) {
         imgStyle={{
           mixBlendMode: "multiply",
           pointerEvents: "none",
+          filter: "grayscale(1)",
         }}
         sx={{
           ":hover": { bg: "secondary" },
