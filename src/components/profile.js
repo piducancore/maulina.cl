@@ -1,31 +1,31 @@
 /** @jsx jsx */
 import { jsx, Grid, Box, Themed } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { GatsbyImage } from "gatsby-plugin-image"
+import React from "react"
 
 import Layout from "./layout"
 import Gallery from "./gallery"
+import Image, { Overlay } from "./image"
 
 export default function Profile({ data }) {
-  const {
-    full_name,
-    residence,
-    birthdate,
-    presentation,
-    profile_picture,
-    featured,
-    gallery,
-  } = data
+  const photos = [data.featured].concat(data.gallery)
   return (
-    <Layout seo={{ title: full_name }}>
-      <Gallery featured={featured} gallery={gallery} />
+    <Layout seo={{ title: data.full_name }}>
+      <Gallery size={4}>
+        {photos.map(photo => (
+          <div key={photo.title} sx={{ position: "relative", display: "flex" }}>
+            <Image data={photo} sx={{ m: 1 }} />
+            <Overlay>{photo.title}</Overlay>
+          </div>
+        ))}
+      </Gallery>
       <Grid columns={[1, 2]} sx={{ my: 6 }}>
         <Box sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
-          <Themed.h3 sx={{ mb: 0 }}>{full_name}</Themed.h3>
+          <Themed.h3 sx={{ mb: 0 }}>{data.full_name}</Themed.h3>
           <Themed.h3 sx={{ mt: 0 }}>
-            {residence}, {birthdate.slice(0, 4)}
+            {data.residence}, {data.birthdate.slice(0, 4)}
           </Themed.h3>
-          <MDXRenderer>{presentation.childMdx.body}</MDXRenderer>
+          <MDXRenderer>{data.presentation.childMdx.body}</MDXRenderer>
         </Box>
         <Box
           sx={{
@@ -36,19 +36,10 @@ export default function Profile({ data }) {
             top: [null, 88],
           }}
         >
-          <GatsbyImage
-            placeholder="blurred"
-            image={profile_picture.gatsbyImageData}
-            alt={full_name}
+          <Image
+            data={data.profile_picture}
+            alt={data.full_name}
             objectFit="contain"
-            imgStyle={{
-              mixBlendMode: "multiply",
-              pointerEvents: "none",
-            }}
-            sx={{
-              ":hover": { bg: "secondary" },
-              width: "100%",
-            }}
           />
         </Box>
       </Grid>

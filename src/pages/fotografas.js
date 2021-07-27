@@ -1,27 +1,41 @@
 /** @jsx jsx */
-import { jsx, Flex, Themed } from "theme-ui"
+import { jsx, Themed } from "theme-ui"
 import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Thumbnail from "../components/thumbs"
+import Gallery from "../components/gallery"
+
+import Image, { Overlay } from "../components/image"
+import React from "react"
 
 export default function Fotografas({ data }) {
-  const { nodes } = data.allContentfulArtista
+  const profiles = data.allContentfulArtista.nodes
   return (
     <Layout seo={{ title: "Fotógrafas" }}>
-      <div
-        sx={{
-          columnCount: [2, 3, 4],
-        }}
-      >
-        {nodes.map(({ username, profile_picture }) => {
+      <Gallery size={3} sx={{ flexDirection: ["column", "row"] }}>
+        {profiles.map(profile => {
           return (
-            <Themed.a key={username} as={Link} to={"/" + username}>
-              <Thumbnail image={profile_picture} alt={username} />
-            </Themed.a>
+            <React.Fragment key={profile.username}>
+              <Themed.a
+                as={Link}
+                to={"/" + profile.username}
+                sx={{
+                  position: "relative",
+                }}
+              >
+                <Image
+                  key={profile.username}
+                  data={profile.profile_picture}
+                  alt={profile.username}
+                  imgStyle={{ filter: "grayscale(1)" }}
+                  sx={{ m: 1 }}
+                />
+                <Overlay>{profile.username}</Overlay>
+              </Themed.a>
+            </React.Fragment>
           )
         })}
-      </div>
+      </Gallery>
     </Layout>
   )
 }
@@ -34,7 +48,8 @@ export const query = graphql`
         username
         profile_picture {
           gatsbyImageData(
-            width: 320
+            # width: 320
+            height: 480
             quality: 100
             placeholder: DOMINANT_COLOR
             # transformOptions: { grayscale: true }
