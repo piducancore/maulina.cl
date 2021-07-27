@@ -1,25 +1,18 @@
 /** @jsx jsx */
-import { jsx, div, Box, Themed } from "theme-ui"
+import { jsx, Grid } from "theme-ui"
 
 import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function Gallery({ featured, gallery }) {
   return (
-    <div sx={{ columnCount: [2, 3, 4] }}>
-      <GatsbyImage
-        image={featured.gatsbyImageData}
-        alt={featured.title}
-        objectFit="cover"
-        imgStyle={{
-          mixBlendMode: "multiply",
-          pointerEvents: "none",
-        }}
-        sx={{
-          ":hover": { bg: "secondary" },
-          mb: 3,
-        }}
-      />
-      {gallery.map((photo, index) => {
+    <Grid
+      sx={{
+        gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+        gridTemplateRows: "repeat(auto-fit, 160px)",
+        gridAutoFlow: "dense",
+      }}
+    >
+      {[featured].concat(gallery).map((photo, index) => {
         return (
           <GatsbyImage
             key={photo.title}
@@ -32,12 +25,12 @@ export default function Gallery({ featured, gallery }) {
             }}
             sx={{
               ":hover": { bg: "secondary" },
-              mb: 3,
+              // gridColumnEnd: `span ${Math.random() < 0.5 ? "2" : "1"}`,
+              gridRowEnd: `span ${Math.random() < 0.5 ? "2" : "1"}`,
             }}
           />
         )
       })}
-      {console.log({ featured, gallery })}
-    </div>
+    </Grid>
   )
 }
