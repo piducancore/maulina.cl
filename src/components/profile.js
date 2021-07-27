@@ -19,7 +19,7 @@ export default function Profile({ data }) {
   return (
     <Layout seo={{ title: full_name }}>
       <Gallery featured={featured} gallery={gallery} />
-      <Grid columns={[1, 2]} sx={{ mt: 3, mb: 6 }}>
+      <Grid columns={[1, 2]} sx={{ my: 6 }}>
         <Box sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
           <Themed.h3 sx={{ mb: 0 }}>{full_name}</Themed.h3>
           <Themed.h3 sx={{ mt: 0 }}>
