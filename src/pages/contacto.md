@@ -12,11 +12,11 @@ import SocialIcons from "../components/social-icons"
 
 <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
 
-## C o n v e r s e m o s
+## Conversemos
 
 <SocialIcons />
 
-### h o l a @ m a u l i n a . c l
+### hola@maulina.cl
 
 </Box>
 
