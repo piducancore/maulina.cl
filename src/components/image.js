@@ -2,26 +2,27 @@
 import { jsx, Themed } from "theme-ui"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-export default function Image({ data, imgStyle, ...props }) {
+export default function Image({ data, imgStyle, overlay, ...props }) {
   return (
-    <GatsbyImage
-      image={data.gatsbyImageData}
-      alt={data.title}
-      objectFit="cover"
-      imgStyle={{
-        mixBlendMode: "multiply",
-        pointerEvents: "none",
-        ...imgStyle,
-      }}
-      sx={{
-        ":hover": { bg: "secondary" },
-        ":hover~.overlay": {
-          opacity: 1,
-          mb: 2,
-        },
-      }}
-      {...props}
-    />
+    <div key={data.title} sx={{ position: "relative", display: "flex" }}>
+      <GatsbyImage
+        image={data.gatsbyImageData}
+        alt={data.title}
+        objectFit="cover"
+        imgStyle={{
+          mixBlendMode: "multiply",
+          pointerEvents: "none",
+          ...imgStyle,
+        }}
+        sx={{
+          m: 1,
+          ":hover": { bg: "secondary" },
+          ":hover~.overlay": { opacity: 1, mb: 2 },
+        }}
+        {...props}
+      />
+      {overlay && <Overlay>{overlay}</Overlay>}
+    </div>
   )
 }
 
