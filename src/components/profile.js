@@ -1,22 +1,23 @@
 /** @jsx jsx */
 import { jsx, Grid, Box, Themed } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import React from "react"
 
 import Layout from "./layout"
 import Gallery from "./gallery"
-import Image, { Overlay } from "./image"
+import Image from "./image"
 
 export default function Profile({ data }) {
   const photos = [data.featured].concat(data.gallery)
   return (
     <Layout seo={{ title: data.full_name }}>
       <Gallery size={4}>
-        {photos.map(photo => (
-          <div key={photo.title} sx={{ position: "relative", display: "flex" }}>
-            <Image data={photo} sx={{ m: 1 }} />
-            <Overlay>{photo.title}</Overlay>
-          </div>
+        {photos.map((photo, index) => (
+          <Image
+            key={index}
+            data={photo}
+            alt={photo.title}
+            overlay={photo.title}
+          />
         ))}
       </Gallery>
       <Grid columns={[1, 2]} sx={{ my: 6 }}>

@@ -5,8 +5,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Gallery from "../components/gallery"
 
-import Image, { Overlay } from "../components/image"
-import React from "react"
+import Image from "../components/image"
 
 export default function Fotografas({ data }) {
   const profiles = data.allContentfulArtista.nodes
@@ -15,24 +14,18 @@ export default function Fotografas({ data }) {
       <Gallery size={3} sx={{ flexDirection: ["column", "row"] }}>
         {profiles.map(profile => {
           return (
-            <React.Fragment key={profile.username}>
-              <Themed.a
-                as={Link}
-                to={"/" + profile.username}
-                sx={{
-                  position: "relative",
-                }}
-              >
-                <Image
-                  key={profile.username}
-                  data={profile.profile_picture}
-                  alt={profile.username}
-                  imgStyle={{ filter: "grayscale(1)" }}
-                  sx={{ m: 1 }}
-                />
-                <Overlay>{profile.username}</Overlay>
-              </Themed.a>
-            </React.Fragment>
+            <Themed.a
+              key={profile.username}
+              as={Link}
+              to={"/" + profile.username}
+            >
+              <Image
+                data={profile.profile_picture}
+                alt={profile.username}
+                overlay={profile.username}
+                imgStyle={{ filter: "grayscale(1)" }}
+              />
+            </Themed.a>
           )
         })}
       </Gallery>
