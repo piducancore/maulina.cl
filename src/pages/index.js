@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import Gallery from "../components/gallery"
 import Image from "../components/image"
 
-export default function IndexPage({ data }) {
+export default function IndexPage({ data, location }) {
   const allPhotos = data.allContentfulArtista.nodes
     .map(({ username, featured, gallery }) =>
       [featured].concat(gallery).map(photo => {
@@ -17,8 +17,9 @@ export default function IndexPage({ data }) {
     )
     .flat()
   const shuffled = shuffle(allPhotos).slice(-9)
+
   return (
-    <Layout seo={{ title: "Inicio" }}>
+    <Layout seo={{ title: "Inicio" }} location={location}>
       <Gallery size={3} sx={{ flexDirection: ["column", "row"] }}>
         {shuffled.map(photo => {
           return (
