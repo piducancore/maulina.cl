@@ -28,7 +28,7 @@ const theme = merge(light, {
     },
   },
   sizes: {
-    container: 1280,
+    container: 1366,
   },
   layout: {
     root: {
@@ -155,10 +155,23 @@ const theme = merge(light, {
   },
   styles: {
     root: {
+      "*": {
+        transition: ".4s",
+        // userSelect: "none",
+      },
+
+      "*:focus": {
+        outline: "none",
+      },
+
+      "*::selection": {
+        bg: "secondary",
+        color: "background",
+      },
       ".slick-track": { display: "flex", height: "100%" },
       ".slick-slide": { my: "auto" },
       body: {
-        margin: "0px !important",
+        m: 0,
       },
       overflowY: "scroll",
 
@@ -174,22 +187,6 @@ const theme = merge(light, {
       // "*::-webkit-scrollbar-thumb": {
       //   bg: "primary",
       // },
-
-      "*:focus": {
-        outline: "none",
-      },
-
-      "*::selection": {
-        bg: "secondary",
-        color: "background",
-      },
-
-      "*": {
-        transition: ".4s",
-        // userSelect: "none",
-        // scrollbarWidth: "thin" /* "auto" or "thin" */,
-        // scrollbarColor: theme => `${theme.colors.primary} #ffffff00` /* scroll thumb and track */,
-      },
     },
     a: {
       color: "primary",
