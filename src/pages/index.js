@@ -16,12 +16,11 @@ export default function IndexPage({ data }) {
       })
     )
     .flat()
-  const shuffled = shuffle(allPhotos)
+  const shuffled = shuffle(allPhotos).slice(-9)
   return (
     <Layout seo={{ title: "Inicio" }}>
       <Gallery size={3} sx={{ flexDirection: ["column", "row"] }}>
         {shuffled.map(photo => {
-          console.log(photo)
           return (
             <Themed.a key={photo.title} as={Link} to={"/" + photo.username}>
               <Image
