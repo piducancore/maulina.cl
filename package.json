@@ -11,6 +11,7 @@
     "@piducancore/fonts-andale-mono": "^1.0.1",
     "@theme-ui/color": "^0.10.0",
     "@theme-ui/presets": "^0.10.0",
+    "array-shuffle": "^3.0.0",
     "gatsby": "^3.10.1",
     "gatsby-plugin-image": "^1.10.1",
     "gatsby-plugin-manifest": "^3.10.0",
