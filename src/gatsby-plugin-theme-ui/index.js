@@ -28,7 +28,7 @@ const theme = merge(light, {
     },
   },
   sizes: {
-    container: 1366,
+    container: 1280,
   },
   layout: {
     root: {
