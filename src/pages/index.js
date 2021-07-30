@@ -47,7 +47,7 @@ export const query = graphql`
           contentful_id
           title
           gatsbyImageData(
-            height: 480
+            height: 560
             quality: 100
             placeholder: DOMINANT_COLOR
           )
@@ -56,7 +56,7 @@ export const query = graphql`
           contentful_id
           title
           gatsbyImageData(
-            height: 480
+            height: 560
             quality: 100
             placeholder: DOMINANT_COLOR
           )
