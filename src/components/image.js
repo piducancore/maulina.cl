@@ -16,8 +16,10 @@ export default function Image({ data, imgStyle, overlay, ...props }) {
         }}
         sx={{
           m: 1,
+          // width: "100%",
+          // height: 320,
           ":hover": { bg: "secondary" },
-          ":hover~.overlay": { opacity: 1, mb: 2 },
+          ":hover~.overlay": { opacity: 1, mb: 3 },
         }}
         {...props}
       />
@@ -32,7 +34,7 @@ export function Overlay({ children }) {
       className="overlay"
       sx={{
         mb: 0,
-        ml: 2,
+        ml: 3,
         position: "absolute",
         bottom: 0,
         left: 0,
