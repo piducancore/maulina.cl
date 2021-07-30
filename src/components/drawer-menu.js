@@ -6,20 +6,20 @@ import { alpha } from "@theme-ui/color"
 
 export const items = ["Somos", "Fotógrafas", "Blog", "Contacto"]
 
-export default function DrawerMenu({ isOpen, close }) {
+export default function DrawerMenu({ isMenuOpen, close }) {
   return (
     <div
       sx={{
         position: "fixed",
         height: "100vh",
         width: "100vw",
-        left: isOpen ? "0%" : "-100%",
+        left: isMenuOpen ? "0%" : "-100%",
         bg: alpha("secondary", 0.96),
         // display: "flex",
         // flexDirection: "column",
         // justifyContent: "center",
         zIndex: 99,
-        opacity: isOpen ? 1 : 0,
+        opacity: isMenuOpen ? 1 : 0,
       }}
     >
       <Container sx={{ my: 6 }}>
