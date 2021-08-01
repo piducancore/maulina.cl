@@ -5,6 +5,7 @@ import slugify from "slugify"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
+import Image from "../components/image"
 
 export default function Blog({ data }) {
   const { nodes } = data.allContentfulColumna
@@ -14,23 +15,7 @@ export default function Blog({ data }) {
       {nodes.map(post => {
         return (
           <Grid key={post.contentful_id} columns={[1, 2]} sx={{ mb: 4 }}>
-            <Box>
-              <GatsbyImage
-                placeholder="blurred"
-                image={post.image.gatsbyImageData}
-                alt={post.title}
-                objectFit="cover"
-                imgStyle={{
-                  mixBlendMode: "multiply",
-                  pointerEvents: "none",
-                }}
-                sx={{
-                  ":hover": { bg: "secondary" },
-                  width: "100%",
-                  height: 480,
-                }}
-              />
-            </Box>
+            <Image data={post.image} alt={post.title} />
 
             <Flex sx={{ p: 3 }}>
               <div
