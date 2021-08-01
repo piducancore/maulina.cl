@@ -1,8 +1,7 @@
 /** @jsx jsx */
-import { jsx, Themed, Grid, Box, Flex } from "theme-ui"
+import { jsx, Themed, Grid, Flex } from "theme-ui"
 import { graphql, Link } from "gatsby"
 import slugify from "slugify"
-import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
