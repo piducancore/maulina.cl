@@ -6,7 +6,7 @@ export default function SocialIcons({ inverted, ...props }) {
   const { theme } = useThemeUI()
   const { background, text } = theme.colors
   return (
-    <Flex>
+    <Flex {...props}>
       <SocialIcon
         target="_blank"
         bgColor="#00000000"
