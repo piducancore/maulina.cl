@@ -30,10 +30,11 @@ export default function Form() {
     setLoading(true)
     try {
       const { name, email, message } = values
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://append-to-sheet.vercel.app/api", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          spreadsheetId: process.env.SPREADSHEET_ID,
           values: Object.values({ name, email, message }),
         }),
       })
