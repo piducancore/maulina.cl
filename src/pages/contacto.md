@@ -14,7 +14,7 @@ import SocialIcons from "../components/social-icons"
 
 ## Conversemos
 
-<SocialIcons />
+<SocialIcons sx={{ mx: 'auto' }} />
 
 ### hola@maulina.cl
 
