@@ -1,7 +1,23 @@
 ---
-title: "Somos"
+title: "Somos Maulina"
 ---
 
-## Somos
+## Somos Maulina
 
-lalalala
+Somos un espacio dedicado a la visibilización y difusión del trabajo fotográfico de mujeres en la Región del Maule.
+
+Buscamos promover diálogos y la reflexión del ejercicio de la disciplina, en un contexto regional y desde una perspectiva de género.
+
+Compartimos exhibiciones que ponen en valor las obras, a través de un trabajo de curaduría cercano y que involucra a cada artista con su propuesta.
+
+Fomentamos la difusión de contenidos asociados a la disciplina y el encuentro e intercambio con redes colaborativas para fortalecer la valorización del trabajo fotográfico autoral femenino local.
+
+Somos un grupo de mujeres que creemos en nuestra mirada, en nuestro trabajo y en lo que podemos lograr unidas. Desde distintos rincones del Maule encendemos esta llama que esperamos movilice, estimule y abra nuevas posibilidades para que vengan muchas (es) más.
+
+Somos Maulina, comunidad de fotografía.
+
+(propongo que sea sin imagen)
+
+Esta plataforma es posible gracias a muchas personas, organizaciones y espacios que nos otorgan su apoyo.
+
+(logos colaboradores)
