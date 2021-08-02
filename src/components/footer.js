@@ -20,7 +20,7 @@ export default function Footer() {
     <Container>
       <Grid columns={[1, 2]} gap={4}>
         <Flex sx={{ gridRow: [1, 1], gridColumn: [1, 2] }}>
-          <Themed.p sx={{ mb: "auto", flex: 1 }}>
+          <Themed.p sx={{ mb: "auto", flex: 1, fontSize: 0 }}>
             {site.siteMetadata.title} {site.siteMetadata.description}
           </Themed.p>
           <SocialIcons inverted sx={{ mb: "auto" }} />
@@ -35,7 +35,7 @@ export default function Footer() {
             quality={100}
             sx={{ width: 150, flexShrink: 0, mr: 3 }}
           />
-          <Themed.p /*sx={{ mt: "auto" , mb: 0 }} */>
+          <Themed.p sx={{ mt: "auto", fontSize: 0 }}>
             Proyecto financiado por el Fondo Nacional de Desarrollo Cultural y
             las Artes, 2021.
           </Themed.p>
