@@ -34,14 +34,15 @@ export function Overlay({ children }) {
       className="overlay"
       sx={{
         mb: 0,
-        ml: 3,
+        px: 3,
+        width: "100%",
         position: "absolute",
         bottom: 0,
         left: 0,
         opacity: 0,
         color: "background",
-        fontWeight: "headings",
         pointerEvents: "none",
+        variant: "text.truncate",
       }}
     >
       {children}
