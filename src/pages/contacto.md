@@ -12,7 +12,7 @@ import SocialIcons from "../components/social-icons"
 
 <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
 
-## Conversemos
+# Conversemos
 
 <SocialIcons sx={{ mx: 'auto' }} />
 
