@@ -2,7 +2,15 @@
 title: "Somos Maulina"
 ---
 
-## Somos Maulina
+import { Container } from "theme-ui"
+
+<center>
+
+# Somos Maulina
+
+</center>
+
+<Container sx={{ variant: "layout.container.text" }}>
 
 Somos un espacio dedicado a la visibilización y difusión del trabajo fotográfico de mujeres en la Región del Maule.
 
@@ -21,3 +29,5 @@ Somos Maulina, comunidad de fotografía.
 Esta plataforma es posible gracias a muchas personas, organizaciones y espacios que nos otorgan su apoyo.
 
 (logos colaboradores)
+
+</Container>
