@@ -86,7 +86,7 @@ export default function Form() {
               <Themed.h4>Pronto estaremos en contacto.</Themed.h4>
             </div>
           ) : (
-            <Spinner sx={{ m: "auto" }} />
+            <Spinner color="secondary" sx={{ m: "auto" }} />
           )}
         </div>
       )}
