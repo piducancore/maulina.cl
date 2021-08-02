@@ -11,10 +11,11 @@ export default function Blog({ data }) {
 
   return (
     <Layout seo={{ title: "Blog" }}>
+      <Themed.h1 sx={{ textAlign: "center" }}>Blog</Themed.h1>
       {nodes.map(post => {
         return (
           <Grid key={post.contentful_id} columns={[1, 2]} sx={{ mb: 4 }}>
-            <Image data={post.image} alt={post.title} />
+            <Image data={post.image} alt={post.title} sx={{ height: 400 }} />
 
             <Flex sx={{ p: 3 }}>
               <div
@@ -37,10 +38,7 @@ export default function Blog({ data }) {
                   <span sx={{ fontFamily: "body", fontSize: 2 }}>Por </span>
                   {post.author.name}
                 </Themed.h4>
-                <Themed.p sx={{ mt: 0 }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </Themed.p>
+                <Themed.p sx={{ mt: 0 }}>{post.short_text}</Themed.p>
               </div>
             </Flex>
           </Grid>
@@ -57,6 +55,7 @@ export const query = graphql`
         contentful_id
         title
         date
+        short_text
         image {
           gatsbyImageData
         }
