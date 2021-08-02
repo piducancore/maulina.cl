@@ -17,12 +17,12 @@ const Header = () => {
       <header
         sx={{
           variant: "layout.header",
-          bg: isMenuOpen ? "#00000000" : alpha("background", 0.96),
+          bg: isMenuOpen ? "#00000000" : alpha("background", 0.8),
         }}
       >
         <Container>
           <Flex sx={{ width: "100%", flexDirection: ["row-reverse", "row"] }}>
-            <Link to="/" sx={{ my: "auto", display: "flex", height: [32, 48] }}>
+            <Link to="/" sx={{ my: "auto", display: "flex", height: [32, 88] }}>
               <Logo height={"100%"} inverted={isMenuOpen} />
             </Link>
             <Menu
