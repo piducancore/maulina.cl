@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, Grid, Box, Themed } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { alpha } from "@theme-ui/color"
 
 import Layout from "./layout"
 import Gallery from "./gallery"
@@ -21,7 +22,14 @@ export default function Profile({ data }) {
         ))}
       </Gallery>
       <Grid columns={[1, 2]} sx={{ my: 6 }}>
-        <Box sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
+        <Box
+          sx={{
+            gridRow: [2, 1],
+            gridColumn: [1, 1],
+            zIndex: 98,
+            bg: alpha("background", 0.8),
+          }}
+        >
           <Themed.h3 sx={{ mb: 0 }}>{data.full_name}</Themed.h3>
           <Themed.h3 sx={{ mt: 0 }}>
             {data.residence}, {data.birthdate.slice(0, 4)}
@@ -32,9 +40,9 @@ export default function Profile({ data }) {
           sx={{
             gridRow: [1, 1],
             gridColumn: [1, 2],
-            position: [null, "sticky"],
+            position: ["sticky", "sticky"],
             alignSelf: [null, "start"],
-            top: [null, 88],
+            top: [50, 124],
           }}
         >
           <Image
