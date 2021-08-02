@@ -9,6 +9,7 @@ const theme = {
     useColorSchemeMediaQuery: false,
     useRootStyles: true,
   },
+  // breakpoints: ["40em", "52em", "64em"],
   colors: {
     text: "#0d0106",
     background: "#fff",
@@ -40,7 +41,7 @@ const theme = {
     heading: "Staatliches",
     monospace: "Silom, monospace",
   },
-  fontSizes: [10, 12, 14, 18, 20, 24, 32, 48, 64, 72],
+  fontSizes: [14, 18, 20, 24, 32, 48, 64, 72],
   fontWeights: {
     body: 400,
     heading: 400,
@@ -56,12 +57,13 @@ const theme = {
       fontFamily: "heading",
       fontWeight: "heading",
       lineHeight: "heading",
+      letterSpacing: 5,
     },
     display: {
       variant: "textStyles.heading",
       fontSize: [5, 6],
-      fontWeight: "display",
-      letterSpacing: "-0.03em",
+      fontWeight: "heading",
+      letterSpacing: 5,
       mt: 3,
     },
   },
@@ -98,6 +100,9 @@ const theme = {
     },
     h1: {
       variant: "textStyles.display",
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
     },
     h2: {
       variant: "textStyles.heading",
@@ -106,7 +111,6 @@ const theme = {
     h3: {
       variant: "textStyles.heading",
       fontSize: 4,
-      letterSpacing: 4,
     },
     h4: {
       variant: "textStyles.heading",
@@ -122,6 +126,7 @@ const theme = {
     },
     p: {
       fontSize: 2,
+      // textAlign: "justify",
     },
     a: {
       color: "primary",
@@ -208,10 +213,12 @@ const theme = {
       maxWidth: "container",
       mx: "auto",
       px: 3,
+      text: { p: 0, maxWidth: 960 },
     },
     header: {
       width: "100%",
       py: 2,
+      px: 1,
       zIndex: 100,
       position: "sticky",
       top: 0,
@@ -244,6 +251,7 @@ const theme = {
   },
   buttons: {
     primary: {
+      border: theme => `1px solid ${theme.colors.secondary}`,
       borderRadius: 360,
       cursor: "pointer",
       bg: "secondary",
@@ -258,7 +266,7 @@ const theme = {
     },
   },
   forms: {
-    primary: {},
+    primary: { py: 3 },
     label: {
       // fontSize: 1,
       display: "block",
@@ -269,10 +277,10 @@ const theme = {
     input: {
       fontFamily: "monospace",
       bg: "muted",
-      border: "none",
+      borderColor: "background",
       mb: 3,
       "&:focus": {
-        borderColor: "primary",
+        borderColor: "secondary",
         outline: "none",
       },
     },
@@ -280,10 +288,10 @@ const theme = {
       resize: "none",
       fontFamily: "monospace",
       bg: "muted",
-      border: "none",
+      borderColor: "background",
       mb: 3,
       "&:focus": {
-        borderColor: "primary",
+        borderColor: "secondary",
         outline: "none",
       },
     },
@@ -291,14 +299,6 @@ const theme = {
   links: {
     nav: {
       display: ["none", "inherit"],
-    },
-  },
-  cards: {
-    primary: {
-      padding: 0,
-      borderRadius: 0,
-      boxShadow: "0 0 8px rgba(0, 0, 0, 0.125)",
-      mb: 3,
     },
   },
 }
