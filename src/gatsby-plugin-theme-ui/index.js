@@ -79,6 +79,7 @@ const theme = {
       "*:not(.headroom)": {
         transition: ".2s",
       },
+      ".headroom": { zIndex: "100 !important" },
       "*:focus": {
         outline: "none",
       },
