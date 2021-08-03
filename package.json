@@ -32,7 +32,8 @@
     "react-helmet": "^6.1.0",
     "react-slick": "^0.28.1",
     "react-social-icons": "^5.5.1",
-    "theme-ui": "^0.10.0"
+    "theme-ui": "^0.10.0",
+    "zustand": "^3.5.7"
   },
   "devDependencies": {
     "prettier": "2.3.2"
