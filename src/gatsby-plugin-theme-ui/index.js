@@ -76,8 +76,8 @@ const theme = {
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",
-      "*": {
-        transition: ".4s",
+      "*:not(.headroom)": {
+        transition: ".2s",
       },
       "*:focus": {
         outline: "none",
@@ -256,7 +256,6 @@ const theme = {
       cursor: "pointer",
       bg: "secondary",
       color: "background",
-      transition: ".4s",
       letterSpacing: 4,
       px: 4,
       "&:hover": {
