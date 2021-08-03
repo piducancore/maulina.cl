@@ -14,7 +14,7 @@ export default function Profile({ data }) {
       seo={{
         title: data.full_name,
         description: data.presentation.presentation,
-        image: data.profile_picture.gatsbyImage.images.fallback.src,
+        image: data.profile_picture.file.url,
       }}
     >
       <Gallery size={4}>

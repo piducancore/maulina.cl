@@ -18,6 +18,9 @@ export const ProfileQuery = graphql`
       residence
       birthdate
       profile_picture {
+        file {
+          url
+        }
         gatsbyImageData
       }
       featured {
