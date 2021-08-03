@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="menu_copia" data-name="menu copia" class="cls-1" d="M12,12H30v2H12V12Zm0,8H22v2H12V20Zm0,8H30v2H12V28Z"/>
+</svg>
