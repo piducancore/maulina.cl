@@ -5,6 +5,7 @@ import React, { useEffect } from "react"
 import Seo from "./seo"
 import Header from "./header"
 import Footer from "./footer"
+import DrawerMenu from "./drawer-menu"
 
 const Layout = ({ children, location, pageContext, seo }) => {
   // check if current page is root
@@ -25,6 +26,7 @@ const Layout = ({ children, location, pageContext, seo }) => {
         description={seo?.description}
         image={seo?.image}
       />
+      <DrawerMenu />
       <div sx={{ variant: "layout.root" }}>
         <Header />
         <main sx={{ variant: "layout.main" }}>

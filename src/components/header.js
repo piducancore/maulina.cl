@@ -1,45 +1,37 @@
 /** @jsx jsx */
 import { jsx, Flex, Container } from "theme-ui"
-import React, { useState } from "react"
 import { Link } from "gatsby"
 import { alpha } from "@theme-ui/color"
 import Headroom from "react-headroom"
 
 import Menu from "./menu"
 import Logo from "./logo"
-import DrawerMenu from "./drawer-menu"
+
+import useStore from "../state"
 
 const Header = () => {
-  const [isMenuOpen, setMenuOpen] = useState(false)
+  const { isMenuOpen, toggleMenu } = useStore()
   return (
-    <React.Fragment>
-      <DrawerMenu isMenuOpen={isMenuOpen} close={() => setMenuOpen(false)} />
-
-      <Headroom>
-        <header
-          sx={{
-            variant: "layout.header",
-            bg: isMenuOpen ? "#00000000" : alpha("background", 0.8),
-          }}
-        >
-          <Container>
-            <Flex sx={{ width: "100%", flexDirection: ["row-reverse", "row"] }}>
-              <Link
-                to="/"
-                sx={{ my: "auto", display: "flex", height: [32, 88] }}
-              >
-                <Logo height={"100%"} inverted={isMenuOpen} />
-              </Link>
-              <Menu
-                color={isMenuOpen ? "background" : "text"}
-                onClick={() => setMenuOpen(!isMenuOpen)}
-                sx={{ my: "auto", mr: ["auto", 0], ml: [0, "auto"] }}
-              />
-            </Flex>
-          </Container>
-        </header>
-      </Headroom>
-    </React.Fragment>
+    <Headroom>
+      <header
+        sx={{
+          variant: "layout.header",
+          bg: isMenuOpen ? null : alpha("background", 0.8),
+        }}
+      >
+        <Container>
+          <Flex sx={{ width: "100%", flexDirection: ["row-reverse", "row"] }}>
+            <Link to="/" sx={{ my: "auto", display: "flex", height: [32, 88] }}>
+              <Logo height={"100%"} inverted={isMenuOpen} />
+            </Link>
+            <Menu
+              sx={{ my: "auto", mr: ["auto", 0], ml: [0, "auto"] }}
+              onClick={toggleMenu}
+            />
+          </Flex>
+        </Container>
+      </header>
+    </Headroom>
   )
 }
 
