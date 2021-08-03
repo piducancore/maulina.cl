@@ -29,7 +29,7 @@ export default function Footer() {
           <StaticImage
             src="../images/gob.png"
             placeholder="none"
-            formats={["AUTO", "WEBP", "AVIF"]}
+            // formats={["AUTO", "WEBP", "AVIF"]}
             alt={"Ministerio de las Culturas, las Artes y el Patrimonio"}
             objectFit="contain"
             quality={100}
