@@ -20,7 +20,11 @@ const Layout = ({ children, location, pageContext, seo }) => {
 
   return (
     <React.Fragment>
-      <Seo title={seo?.title || pageContext?.frontmatter?.title || ""} />
+      <Seo
+        title={seo?.title || pageContext?.frontmatter?.title || ""}
+        description={seo?.description}
+        image={seo?.image}
+      />
       <div sx={{ variant: "layout.root" }}>
         <Header />
         <main sx={{ variant: "layout.main" }}>

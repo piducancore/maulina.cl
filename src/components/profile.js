@@ -10,7 +10,13 @@ import Image from "./image"
 export default function Profile({ data }) {
   const photos = [data.featured].concat(data.gallery)
   return (
-    <Layout seo={{ title: data.full_name }}>
+    <Layout
+      seo={{
+        title: data.full_name,
+        description: data.presentation.presentation,
+        image: data.profile_picture.gatsbyImage.images.fallback.src,
+      }}
+    >
       <Gallery size={4}>
         {photos.map((photo, index) => (
           <Image
