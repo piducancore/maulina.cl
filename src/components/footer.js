@@ -28,12 +28,12 @@ export default function Footer() {
         <Flex sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
           <StaticImage
             src="../images/gob.png"
-            placeholder="none"
-            // formats={["AUTO", "WEBP", "AVIF"]}
             alt={"Ministerio de las Culturas, las Artes y el Patrimonio"}
-            objectFit="contain"
+            width={150}
+            placeholder="none"
+            formats={["AUTO", "WEBP", "AVIF"]}
             quality={100}
-            sx={{ width: 150, flexShrink: 0, mr: 3 }}
+            sx={{ flexShrink: 0, mr: 3 }}
           />
           <Themed.p sx={{ mt: "auto", fontSize: 0 }}>
             Proyecto financiado por el Fondo Nacional de Desarrollo Cultural y
