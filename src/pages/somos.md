@@ -3,10 +3,11 @@ title: "Somos Maulina"
 ---
 
 import { Container } from "theme-ui"
+import Partners from "../components/partners"
 
 <center>
 
-# Somos Maulina
+# Somos Maulina 🔥
 
 </center>
 
@@ -24,10 +25,8 @@ Somos un grupo de mujeres que creemos en nuestra mirada, en nuestro trabajo y en
 
 Somos Maulina, comunidad de fotografía.
 
-(propongo que sea sin imagen)
-
 Esta plataforma es posible gracias a muchas personas, organizaciones y espacios que nos otorgan su apoyo.
 
-(logos colaboradores)
+<Partners />
 
 </Container>
