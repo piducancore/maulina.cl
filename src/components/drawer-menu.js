@@ -19,7 +19,7 @@ export default function DrawerMenu() {
         height: "100vh",
         width: "100%",
         left: isMenuOpen ? "0%" : "-100%",
-        bg: alpha("secondary", 0.96),
+        bg: alpha("secondary", 0.88),
         // display: "flex",
         // flexDirection: "column",
         // justifyContent: "center",
