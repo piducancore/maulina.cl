@@ -48,7 +48,7 @@ export default function Profile({ data }) {
             gridColumn: [1, 2],
             position: ["sticky", "sticky"],
             alignSelf: [null, "start"],
-            top: [50, 124],
+            top: 2,
           }}
         >
           <Image
