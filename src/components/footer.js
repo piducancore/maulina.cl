@@ -21,7 +21,7 @@ export default function Footer() {
       <Grid columns={[1, 2]} gap={4}>
         <Flex sx={{ gridRow: [1, 1], gridColumn: [1, 2] }}>
           <Themed.p sx={{ mb: "auto", flex: 1, fontSize: 0 }}>
-            {site.siteMetadata.title} {site.siteMetadata.description}
+            {site.siteMetadata.title}, {site.siteMetadata.description}
           </Themed.p>
           <SocialIcons inverted sx={{ mb: "auto" }} />
         </Flex>
