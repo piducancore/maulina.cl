@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Grid, Box, Themed } from "theme-ui"
+import { jsx, Grid, Box, Container, Themed } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { alpha } from "@theme-ui/color"
 import { Link } from "gatsby"
@@ -28,7 +28,10 @@ export default function Profile({ current, prev, next }) {
           />
         ))}
       </Gallery>
-      <Grid columns={[1, 2]} sx={{ my: 6 }}>
+      <Container sx={{ variant: "layout.container.text", my: 5 }}>
+        <MDXRenderer>{current.curatorship.childMdx.body}</MDXRenderer>
+      </Container>
+      <Grid columns={[1, 2]}>
         <Box
           sx={{
             gridRow: [2, 1],

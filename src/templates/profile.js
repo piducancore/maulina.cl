@@ -45,7 +45,6 @@ export const ProfileQuery = graphql`
         gatsbyImageData
       }
       presentation {
-        presentation
         childMdx {
           body
         }
