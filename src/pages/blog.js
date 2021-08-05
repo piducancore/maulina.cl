@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Themed, Grid, Flex } from "theme-ui"
+import { jsx, Themed, Grid, Box, Flex, Container, Button } from "theme-ui"
 import { graphql, Link } from "gatsby"
 import slugify from "slugify"
 
@@ -8,24 +8,43 @@ import Image from "../components/image"
 
 export default function Blog({ data }) {
   const { nodes } = data.allContentfulColumna
-
   return (
     <Layout seo={{ title: "Blog" }}>
       <Themed.h1 sx={{ textAlign: "center" }}>Blog</Themed.h1>
-      {nodes.map(post => {
-        return (
-          <Grid key={post.contentful_id} columns={[1, 2]} sx={{ mb: 4 }}>
-            <Image data={post.image} alt={post.title} sx={{ height: 400 }} />
-
-            <Flex sx={{ p: 3 }}>
-              <div
-                sx={
-                  {
-                    /* my: "auto" */
-                  }
-                }
-              >
-                <Themed.h3 sx={{ mb: 0 }}>
+      {nodes.map((post, index) => (
+        <Container
+          variant="layout.container.text"
+          key={post.contentful_id}
+          sx={{
+            ml: index % 2 ? "auto" : index % 3 ? "auto" : 0,
+            mr: index % 2 ? 0 : index % 3 ? "auto" : "auto",
+            mb: 6,
+          }}
+        >
+          <Grid
+            columns={[1, index % 2 ? "2fr 1fr" : index % 3 ? 1 : "1fr 2fr"]}
+            gap={4}
+          >
+            <Box
+              sx={{
+                gridRow: 1,
+                gridColumn: [1, index % 2 ? 2 : 1],
+                alignItems: "center",
+                justifyContent: "center",
+                display: "flex",
+              }}
+            >
+              <Image data={post.image} alt={post.title} />
+            </Box>
+            <Box
+              sx={{
+                alignItems: "center",
+                justifyContent: "center",
+                display: "flex",
+              }}
+            >
+              <div sx={{ maxWidth: 560 }}>
+                <Themed.h3 sx={{ my: 0 }}>
                   <Themed.a
                     as={Link}
                     to={"/" + slugify(post.title).toLowerCase()}
@@ -33,47 +52,32 @@ export default function Blog({ data }) {
                     {post.title}
                   </Themed.a>
                 </Themed.h3>
-                <Themed.h3 sx={{ mt: 0 }}>{post.date}</Themed.h3>
-                <Themed.h4 sx={{ my: 3 }}>
-                  <span sx={{ fontFamily: "body", fontSize: 2 }}>Por </span>
-                  {post.author.name}
-                </Themed.h4>
-                <Themed.p sx={{ mt: 0 }}>{post.short_text}</Themed.p>
+                <Themed.p sx={{ my: 0 }}>{post.short_text}</Themed.p>
+                <Button variant="secondary" sx={{ mt: 2 }}>
+                  Leer más
+                </Button>
               </div>
-            </Flex>
+            </Box>
           </Grid>
-        )
-      })}
+        </Container>
+      ))}
     </Layout>
   )
 }
 
 export const query = graphql`
   query BlogQuery {
-    allContentfulColumna {
+    allContentfulColumna(sort: { fields: date, order: DESC }) {
       nodes {
         contentful_id
         title
         date
         short_text
         image {
-          gatsbyImageData
-        }
-        content {
-          childMdx {
-            body
-          }
+          gatsbyImageData(width: 640)
         }
         author {
           name
-          image {
-            gatsbyImageData
-          }
-          bio {
-            childMdx {
-              body
-            }
-          }
         }
       }
     }
