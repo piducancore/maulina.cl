@@ -41,7 +41,7 @@ export const query = graphql`
         username
         profile_picture {
           gatsbyImageData(
-            height: 560
+            height: 640
             quality: 100
             placeholder: DOMINANT_COLOR
           )
