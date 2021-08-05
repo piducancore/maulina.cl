@@ -54,6 +54,13 @@ export const ProfileQuery = graphql`
           body
         }
       }
+      audios {
+        file {
+          url
+          fileName
+          contentType
+        }
+      }
     }
   }
 `

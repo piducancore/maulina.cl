@@ -5,6 +5,7 @@ import { alpha } from "@theme-ui/color"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React, { useState } from "react"
+import ReactAudioPlayer from "react-audio-player"
 
 import Layout from "./layout"
 import Gallery from "./gallery"
@@ -16,7 +17,6 @@ export default function Profile({ current, prev, next }) {
   const photos = [current.featured].concat(current.gallery)
   const { isHeaderVisible, toggleModal } = useStore()
   const [active, setActive] = useState(0)
-  console.log(active)
   return (
     <Layout
       seo={{
@@ -71,6 +71,12 @@ export default function Profile({ current, prev, next }) {
           <Themed.h3 sx={{ mt: 0 }}>
             {current.residence}, {current.birthdate.slice(0, 4)}
           </Themed.h3>
+          <ReactAudioPlayer
+            src={current.audios[0].file.url}
+            // autoPlay
+            sx={{ width: "100%" }}
+            controls
+          />
           <MDXRenderer>{current.presentation.childMdx.body}</MDXRenderer>
         </Box>
         <Box
