@@ -17,30 +17,32 @@ export default function Footer() {
     }
   `)
   return (
-    <Container>
-      <Grid columns={[1, 2]} gap={4}>
-        <Flex sx={{ gridRow: [1, 1], gridColumn: [1, 2] }}>
-          <Themed.p sx={{ mb: "auto", flex: 1, fontSize: 0 }}>
-            {site.siteMetadata.title}, {site.siteMetadata.description}
-          </Themed.p>
-          <SocialIcons inverted sx={{ mb: "auto" }} />
-        </Flex>
-        <Flex sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
-          <StaticImage
-            src="../images/gob.png"
-            alt={"Ministerio de las Culturas, las Artes y el Patrimonio"}
-            width={150}
-            placeholder="none"
-            formats={["AUTO", "WEBP", "AVIF"]}
-            quality={100}
-            sx={{ flexShrink: 0, mr: 3 }}
-          />
-          <Themed.p sx={{ mt: "auto", fontSize: 0 }}>
-            Proyecto financiado por el Fondo Nacional de Desarrollo Cultural y
-            las Artes, 2021.
-          </Themed.p>
-        </Flex>
-      </Grid>
-    </Container>
+    <footer sx={{ variant: "layout.footer" }}>
+      <Container>
+        <Grid columns={[1, 2]} gap={4}>
+          <Flex sx={{ gridRow: [1, 1], gridColumn: [1, 2] }}>
+            <Themed.p sx={{ mb: "auto", flex: 1, fontSize: 0 }}>
+              {site.siteMetadata.title}, {site.siteMetadata.description}
+            </Themed.p>
+            <SocialIcons inverted sx={{ mb: "auto" }} />
+          </Flex>
+          <Flex sx={{ gridRow: [2, 1], gridColumn: [1, 1] }}>
+            <StaticImage
+              src="../images/gob.png"
+              alt={"Ministerio de las Culturas, las Artes y el Patrimonio"}
+              width={150}
+              placeholder="none"
+              formats={["AUTO", "WEBP", "AVIF"]}
+              quality={100}
+              sx={{ flexShrink: 0, mr: 3 }}
+            />
+            <Themed.p sx={{ mt: "auto", fontSize: 0 }}>
+              Proyecto financiado por el Fondo Nacional de Desarrollo Cultural y
+              las Artes, 2021.
+            </Themed.p>
+          </Flex>
+        </Grid>
+      </Container>
+    </footer>
   )
 }
