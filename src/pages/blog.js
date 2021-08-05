@@ -53,9 +53,14 @@ export default function Blog({ data }) {
                   </Themed.a>
                 </Themed.h3>
                 <Themed.p sx={{ my: 0 }}>{post.short_text}</Themed.p>
-                <Button variant="secondary" sx={{ mt: 2 }}>
-                  Leer más
-                </Button>
+                <Themed.a
+                  as={Link}
+                  to={"/" + slugify(post.title).toLowerCase()}
+                >
+                  <Button variant="secondary" sx={{ mt: 2 }}>
+                    Leer más
+                  </Button>
+                </Themed.a>
               </div>
             </Box>
           </Grid>
