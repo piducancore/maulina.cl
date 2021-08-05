@@ -17,7 +17,7 @@ export default function DrawerMenu() {
       sx={{
         position: "fixed",
         height: "100vh",
-        width: "100%",
+        width: ["100%", 256],
         left: isMenuOpen ? "0%" : "-100%",
         bg: alpha("secondary", 0.88),
         // display: "flex",
@@ -43,7 +43,7 @@ export default function DrawerMenu() {
             <Logo height={"100%"} inverted />
           </div>
         </Flex>
-        <Container mt={5}>
+        <div mt={5}>
           {items.map(item => (
             <Themed.p key={item}>
               <Themed.a
@@ -56,7 +56,7 @@ export default function DrawerMenu() {
               </Themed.a>
             </Themed.p>
           ))}
-        </Container>
+        </div>
       </Container>
     </div>
   )
