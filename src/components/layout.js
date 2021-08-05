@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Themed, Container } from "theme-ui"
+import { jsx, Themed, Container, Grid, Box, Flex } from "theme-ui"
 import React, { useEffect } from "react"
 
 import Seo from "./seo"
@@ -33,58 +33,44 @@ const Layout = ({ children, location, pageContext, seo }) => {
       />
       <DrawerMenu />
       <div sx={{ variant: "layout.root" }}>
-        {isHome ? (
-          <div
-            sx={{
-              flexWrap: "wrap",
-              display: "flex",
-            }}
-          >
-            <div
-              sx={{
-                p: 3,
-                flexGrow: 1,
-                flexBasis: 256,
-                position: "sticky",
-                top: 0,
-                alignSelf: "start",
-                display: "flex",
-                flexDirection: ["row", "column"],
-                height: [null, "100vh"],
-                justifyContent: "space-between",
-              }}
-            >
-              <MenuIcon
-                onClick={toggleMenu}
-                sx={{ cursor: "pointer", mr: "auto" }}
-              />
-              <div sx={{ display: "flex", flexDirection: "column" }}>
-                <Logo height={"100%"} sx={{ mx: "auto", height: [32, 88] }} />
-                <Themed.p sx={{ display: ["none", "inherit"] }}>
-                  Comunidad de fotografía
-                </Themed.p>
-              </div>
-              <div></div>
-            </div>
-            <main
-              sx={{
-                variant: "layout.main",
-                flexGrow: 99999,
-                flexBasis: 0,
-                minWidth: 320,
-              }}
-            >
-              {children}
-            </main>
-          </div>
-        ) : (
+        {
+          /* isHome ? (
           <React.Fragment>
+            <Grid columns={[1, "1fr 3fr", "1fr 4fr"]} gap={0}>
+              <Box>
+                <Flex
+                  sx={{
+                    flexDirection: ["row", "column"],
+                    position: "sticky",
+                    top: 0,
+                    alignSelf: "start",
+                  }}
+                >
+                  <MenuIcon
+                    onClick={toggleMenu}
+                    sx={{ cursor: "pointer", mr: "auto" }}
+                  />
+                  <div sx={{ display: "flex", flexDirection: "column" }}>
+                    <Logo height={"100%"} sx={{ mx: 4, height: [32, 88] }} />
+                    <Themed.p sx={{ display: ["none", "inherit"] }}>
+                      Comunidad de fotografía
+                    </Themed.p>
+                  </div>
+                  <div></div>
+                </Flex>
+              </Box>
+              <Box>
+                <main sx={{ variant: "layout.main.cover" }}>{children}</main>
+              </Box>
+            </Grid>
+          </React.Fragment>
+        ) : */ <React.Fragment>
             <Header />
             <main sx={{ variant: "layout.main" }}>
               <Container>{children}</Container>
             </main>
           </React.Fragment>
-        )}
+        }
         <Footer />
       </div>
     </React.Fragment>
