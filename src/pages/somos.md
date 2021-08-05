@@ -8,7 +8,7 @@ import Team from "../components/team"
 
 <center>
 
-# Somos Maulina 🔥
+# Somos
 
 </center>
 
