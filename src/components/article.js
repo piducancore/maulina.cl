@@ -4,6 +4,34 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "./layout"
+import Image from "./image"
+
+function Bio({ data }) {
+  return (
+    <Flex sx={{ alignItems: "end" }}>
+      <Image
+        data={data.image}
+        alt={data.name}
+        imgStyle={{
+          filter: "grayscale(1)",
+          borderRadius: 360,
+          overflow: "hidden",
+        }}
+        sx={{
+          width: 120,
+          height: 120,
+          borderRadius: 360,
+          overflow: "hidden",
+          mx: "auto",
+        }}
+      />
+      <div sx={{ px: 3 }}>
+        <Themed.p sx={{ mt: 0, fontFamily: "heading" }}>{data.name}</Themed.p>
+        <MDXRenderer>{data.bio.childMdx.body}</MDXRenderer>
+      </div>
+    </Flex>
+  )
+}
 
 export default function Article({ data }) {
   const { title, content, date, image, author } = data
@@ -30,6 +58,7 @@ export default function Article({ data }) {
           <Themed.h4 sx={{ my: 0, ml: 2 }}>{author.name}</Themed.h4>
         </Flex>
         <MDXRenderer>{content.childMdx.body}</MDXRenderer>
+        <Bio data={data.author} />
       </Container>
     </Layout>
   )
