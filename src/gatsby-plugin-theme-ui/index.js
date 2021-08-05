@@ -127,7 +127,7 @@ const theme = {
       fontSize: 1,
     },
     p: {
-      fontSize: [0, 1],
+      fontSize: 0,
     },
     a: {
       color: "primary",
@@ -285,7 +285,7 @@ const theme = {
   forms: {
     primary: { py: 3 },
     label: {
-      // fontSize: 1,
+      fontSize: 0,
       display: "block",
       textAlign: "center",
       letterSpacing: 4,
