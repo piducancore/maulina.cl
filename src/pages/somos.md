@@ -4,6 +4,7 @@ title: "Somos Maulina"
 
 import { Container } from "theme-ui"
 import Partners from "../components/partners"
+import Team from "../components/team"
 
 <center>
 
@@ -23,7 +24,13 @@ Fomentamos la difusión de contenidos asociados a la disciplina y el encuentro e
 
 Somos un grupo de mujeres que creemos en nuestra mirada, en nuestro trabajo y en lo que podemos lograr unidas. Desde distintos rincones del Maule encendemos esta llama que esperamos movilice, estimule y abra nuevas posibilidades para que vengan muchas (es) más.
 
-Somos Maulina, comunidad de fotografía.
+<Team />
+
+<center>
+
+Somos **Maulina**, comunidad de fotografía.
+
+</center>
 
 Esta plataforma es posible gracias a muchas personas, organizaciones y espacios que nos otorgan su apoyo.
 
