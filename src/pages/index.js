@@ -20,7 +20,7 @@ export default function IndexPage({ data, location }) {
 
   return (
     <Layout seo={{ title: "Inicio" }} location={location}>
-      <Gallery size={4} sx={{ flexDirection: ["column", "row"] }}>
+      <Gallery size={4}>
         {shuffled.map(photo => {
           return (
             <Themed.a key={photo.title} as={Link} to={"/" + photo.username}>
