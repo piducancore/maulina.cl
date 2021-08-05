@@ -22,26 +22,7 @@ export default function Modal({ children, active }) {
         bg: "text",
       }}
     >
-      <header sx={{ variant: "layout.header", bg: "none" }}>
-        <Container>
-          <Flex
-            sx={{
-              width: "100%",
-              flexDirection: "row-reverse",
-              alignItems: "center",
-            }}
-          >
-            <Link to="/" sx={{ display: "flex", height: 32 }}>
-              <Logo height={"100%"} inverted />
-            </Link>
-            {/* <MenuIcon
-          inverted
-          onClick={toggleMenu}
-          sx={{ mr: "auto", cursor: "pointer" }}
-        /> */}
-          </Flex>{" "}
-        </Container>
-      </header>
+      <ModalHeader />
       <Slider activeIndex={active} hasArrows={true}>
         {children}
       </Slider>
@@ -51,5 +32,25 @@ export default function Modal({ children, active }) {
         <small onClick={() => toggleModal(false)}>[volver]</small>
       </Themed.p>
     </Flex>
+  )
+}
+
+function ModalHeader() {
+  return (
+    <header sx={{ variant: "layout.header", bg: "none" }}>
+      <Container>
+        <Flex
+          sx={{
+            width: "100%",
+            flexDirection: "row-reverse",
+            alignItems: "center",
+          }}
+        >
+          <Link to="/" sx={{ display: "flex", height: 32 }}>
+            <Logo height={"100%"} inverted />
+          </Link>
+        </Flex>
+      </Container>
+    </header>
   )
 }
