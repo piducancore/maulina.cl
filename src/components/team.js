@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { jsx, Grid, Box, Themed } from "theme-ui"
-import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Image from "../components/image"
+import Image from "./image"
 
 function Member({ data }) {
   return (
