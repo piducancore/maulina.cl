@@ -3,15 +3,20 @@ import { jsx, Grid, Box, Container, Themed } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { alpha } from "@theme-ui/color"
 import { Link } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
+import React, { useState } from "react"
 
 import Layout from "./layout"
 import Gallery from "./gallery"
 import Image from "./image"
+import Modal from "./modal"
 import useStore from "../state"
 
 export default function Profile({ current, prev, next }) {
   const photos = [current.featured].concat(current.gallery)
-  const { isHeaderVisible } = useStore()
+  const { isHeaderVisible, toggleModal } = useStore()
+  const [active, setActive] = useState(0)
+  console.log(active)
   return (
     <Layout
       seo={{
@@ -20,6 +25,22 @@ export default function Profile({ current, prev, next }) {
         image: current.profile_picture.file.url,
       }}
     >
+      <Modal active={active}>
+        {photos.map((photo, index) => (
+          <div
+            key={index}
+            onClick={() => toggleModal(true)}
+            sx={{ display: "flex", height: "100%" }}
+          >
+            <GatsbyImage
+              image={photo.gatsbyImageData}
+              alt={photo.title}
+              objectFit="contain"
+              sx={{ m: "auto", pointerEvents: "none" }}
+            />
+          </div>
+        ))}
+      </Modal>
       <Gallery size={4}>
         {photos.map((photo, index) => (
           <Image
@@ -27,6 +48,10 @@ export default function Profile({ current, prev, next }) {
             data={photo}
             alt={photo.title}
             overlay={photo.title}
+            onClick={() => {
+              setActive(index)
+              toggleModal(true)
+            }}
           />
         ))}
       </Gallery>

@@ -2,9 +2,9 @@
 import { jsx, Themed } from "theme-ui"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-export default function Image({ data, imgStyle, overlay, ...props }) {
+export default function Image({ data, imgStyle, overlay, onClick, ...props }) {
   return (
-    <div sx={{ position: "relative", display: "flex" }}>
+    <div sx={{ position: "relative", display: "flex" }} onClick={onClick}>
       <GatsbyImage
         image={data.gatsbyImageData}
         objectFit="cover"

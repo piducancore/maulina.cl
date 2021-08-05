@@ -315,6 +315,7 @@ const theme = {
   },
   links: {
     nav: {
+      fontSize: [null, 0],
       variant: "styles.a",
       fontWeight: "body",
     },
