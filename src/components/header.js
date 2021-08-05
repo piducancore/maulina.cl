@@ -9,11 +9,11 @@ import MenuIcon from "./menu-icon"
 
 import useStore from "../state"
 
-const Header = () => {
+const Header = props => {
   const { isMenuOpen, toggleMenu } = useStore()
   return (
     <Headroom>
-      <header sx={{ variant: "layout.header" }}>
+      <header sx={{ variant: "layout.header" }} {...props}>
         <Container>
           <Flex
             sx={{
