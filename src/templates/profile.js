@@ -13,14 +13,14 @@ export const ProfileQuery = graphql`
       full_name
       username
       profile_picture {
-        gatsbyImageData
+        gatsbyImageData(height: 320, quality: 100, placeholder: DOMINANT_COLOR)
       }
     }
     prev: contentfulArtista(contentful_id: { eq: $prev }) {
       full_name
       username
       profile_picture {
-        gatsbyImageData
+        gatsbyImageData(height: 320, quality: 100, placeholder: DOMINANT_COLOR)
       }
     }
     current: contentfulArtista(contentful_id: { eq: $contentful_id }) {
@@ -34,15 +34,15 @@ export const ProfileQuery = graphql`
         file {
           url
         }
-        gatsbyImageData
+        gatsbyImageData(height: 560, quality: 100, placeholder: DOMINANT_COLOR)
       }
       featured {
         title
-        gatsbyImageData
+        gatsbyImageData(height: 560, quality: 100, placeholder: DOMINANT_COLOR)
       }
       gallery {
         title
-        gatsbyImageData
+        gatsbyImageData(height: 560, quality: 100, placeholder: DOMINANT_COLOR)
       }
       presentation {
         childMdx {

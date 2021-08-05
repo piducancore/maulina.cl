@@ -7,9 +7,11 @@ import { Link } from "gatsby"
 import Layout from "./layout"
 import Gallery from "./gallery"
 import Image from "./image"
+import useStore from "../state"
 
 export default function Profile({ current, prev, next }) {
   const photos = [current.featured].concat(current.gallery)
+  const { isHeaderVisible } = useStore()
   return (
     <Layout
       seo={{
@@ -52,17 +54,19 @@ export default function Profile({ current, prev, next }) {
             gridColumn: [1, 2],
             position: ["sticky", "sticky"],
             alignSelf: [null, "start"],
-            top: 2,
+            top: [isHeaderVisible ? 58 : 1, isHeaderVisible ? 124 : 1],
           }}
         >
           <Image
             data={current.profile_picture}
             alt={current.full_name}
+            imgStyle={{ filter: "grayscale(1)" }}
             objectFit="contain"
+            sx={{ mx: "auto" }}
           />
         </Box>
       </Grid>
-      <Themed.h3 sx={{ textAlign: "center" }}>
+      <Themed.h3 sx={{ textAlign: "center", my: 5 }}>
         Otras fotógrafas recomendadas
       </Themed.h3>
       <Grid columns={[1, 2]}>
@@ -71,9 +75,10 @@ export default function Profile({ current, prev, next }) {
             <Image
               data={prev.profile_picture}
               alt={prev.full_name}
-              sx={{ mx: "auto", height: 320 }}
+              imgStyle={{ filter: "grayscale(1)" }}
+              sx={{ mx: "auto", height: 320, width: 320 }}
             />
-            <Themed.h4>{prev.full_name}</Themed.h4>
+            <Themed.h4 sx={{ textAlign: "center" }}>{prev.full_name}</Themed.h4>
           </Themed.a>
         </Box>
         <Box sx={{ textAlign: "right" }}>
@@ -81,9 +86,10 @@ export default function Profile({ current, prev, next }) {
             <Image
               data={next.profile_picture}
               alt={next.full_name}
-              sx={{ mx: "auto", height: 320 }}
+              imgStyle={{ filter: "grayscale(1)" }}
+              sx={{ mx: "auto", height: 320, width: 320 }}
             />
-            <Themed.h4>{next.full_name}</Themed.h4>
+            <Themed.h4 sx={{ textAlign: "center" }}>{next.full_name}</Themed.h4>
           </Themed.a>
         </Box>
       </Grid>
