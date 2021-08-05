@@ -31,12 +31,13 @@ export default function Footer() {
               src="../images/gob.png"
               alt={"Ministerio de las Culturas, las Artes y el Patrimonio"}
               width={150}
+              height={137}
               placeholder="none"
               formats={["AUTO", "WEBP", "AVIF"]}
               quality={100}
-              sx={{ flexShrink: 0, mr: 3 }}
+              sx={{ width: 150, height: 137, flexShrink: 0 }}
             />
-            <Themed.p sx={{ mt: "auto", fontSize: 0 }}>
+            <Themed.p sx={{ mt: "auto", ml: 3, fontSize: 0 }}>
               Proyecto financiado por el Fondo Nacional de Desarrollo Cultural y
               las Artes, 2021.
             </Themed.p>
