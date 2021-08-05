@@ -2,8 +2,8 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: `Maulina`,
-    description: `Comunidad de fotografía.`,
-    author: `@marcelavaldes`,
+    description: `comunidad de fotografía.`,
+    author: `@maulina.cl`,
     image: `/maulina.svg`,
     siteUrl: `https://maulina.cl`,
   },
