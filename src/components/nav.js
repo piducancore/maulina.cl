@@ -8,6 +8,8 @@ const items = ["Somos", "Fotógrafas", "Blog", "Contacto"]
 export default function Menu({ sx }) {
   return (
     <div sx={{ display: ["none", "block"], ml: "auto" }}>
+      <MenuItem>Inicio</MenuItem>
+
       {items.map(item => (
         <MenuItem key={slugify(item)}>{item}</MenuItem>
       ))}
@@ -17,8 +19,11 @@ export default function Menu({ sx }) {
 
 function MenuItem({ children }) {
   return (
-    <Themed.p sx={{ fontSize: 1, my: 0 }}>
-      <NavLink as={Link} to={"/" + slugify(children).toLowerCase()}>
+    <Themed.p sx={{ my: 0, textAlign: "right" }}>
+      <NavLink
+        as={Link}
+        to={children === "Inicio" ? "/" : "/" + slugify(children).toLowerCase()}
+      >
         {children}
       </NavLink>
     </Themed.p>

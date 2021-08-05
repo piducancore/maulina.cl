@@ -46,6 +46,16 @@ export default function DrawerMenu() {
         </header>
 
         <Container>
+          <Themed.p>
+            <Themed.a
+              as={Link}
+              to={"/"}
+              sx={{ my: 0, color: "background" }}
+              onClick={toggleMenu}
+            >
+              Inicio
+            </Themed.a>
+          </Themed.p>
           {items.map(item => (
             <Themed.p key={item}>
               <Themed.a
