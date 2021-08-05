@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Flex } from "theme-ui"
-// import React from "react"
 
 export default function GalleryFlex({ children, size, ...props }) {
   let rows = []
