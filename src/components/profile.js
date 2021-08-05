@@ -74,7 +74,7 @@ export default function Profile({ current, prev, next }) {
           <ReactAudioPlayer
             src={current.audios[0].file.url}
             // autoPlay
-            sx={{ width: "100%" }}
+            sx={{ width: ["100%", 300] }}
             controls
           />
           <MDXRenderer>{current.presentation.childMdx.body}</MDXRenderer>
