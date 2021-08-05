@@ -300,7 +300,8 @@ const theme = {
   },
   links: {
     nav: {
-      display: ["none", "inherit"],
+      variant: "styles.a",
+      fontWeight: "body",
     },
   },
 }

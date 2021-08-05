@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Themed } from "theme-ui"
+import { jsx, NavLink, Themed } from "theme-ui"
 import { Link } from "gatsby"
 import slugify from "slugify"
 
@@ -18,9 +18,9 @@ export default function Menu({ sx }) {
 function MenuItem({ children }) {
   return (
     <Themed.p sx={{ fontSize: 1, my: 0 }}>
-      <Themed.a as={Link} to={"/" + slugify(children).toLowerCase()}>
+      <NavLink as={Link} to={"/" + slugify(children).toLowerCase()}>
         {children}
-      </Themed.a>
+      </NavLink>
     </Themed.p>
   )
 }
