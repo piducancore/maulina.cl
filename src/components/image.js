@@ -14,6 +14,7 @@ export default function Image({ data, imgStyle, overlay, ...props }) {
           ...imgStyle,
         }}
         sx={{
+          m: 1,
           ":hover": { bg: "secondary" },
           ":hover~.overlay": { opacity: 1, mb: 3 },
         }}
