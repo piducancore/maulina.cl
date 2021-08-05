@@ -25,7 +25,7 @@ const Header = props => {
               alignItems: "center",
             }}
           >
-            <Link to="/" sx={{ display: "flex", height: [32, 88] }}>
+            <Link to="/" sx={{ display: "flex", height: [32, 64] }}>
               <Logo height={"100%"} inverted={isMenuOpen} />
             </Link>
             <Nav />
