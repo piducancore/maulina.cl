@@ -11,12 +11,18 @@ export const ArticleQuery = graphql`
   query ArticleQuery($contentful_id: String!, $next: String!, $prev: String!) {
     next: contentfulColumna(contentful_id: { eq: $next }) {
       title
+      image {
+        gatsbyImageData(height: 320, quality: 100, placeholder: DOMINANT_COLOR)
+      }
       author {
         name
       }
     }
     prev: contentfulColumna(contentful_id: { eq: $prev }) {
       title
+      image {
+        gatsbyImageData(height: 320, quality: 100, placeholder: DOMINANT_COLOR)
+      }
       author {
         name
       }
@@ -26,7 +32,7 @@ export const ArticleQuery = graphql`
       title
       date
       image {
-        gatsbyImageData(height: 1280, quality: 100, placeholder: DOMINANT_COLOR)
+        gatsbyImageData(width: 640, quality: 100, placeholder: DOMINANT_COLOR)
       }
       content {
         childMdx {

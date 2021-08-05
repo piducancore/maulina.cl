@@ -8,9 +8,9 @@ export default function Bio({ data }) {
   return (
     <Grid
       columns={[1, "120px auto"]}
-      sx={{ my: 5, maxWidth: [null, 640], mx: "auto" }}
+      sx={{ my: 5 /* maxWidth: [null, 640] */ }}
     >
-      <Box>
+      <Box sx={{ display: ["block", "flex"], alignItems: "center" }}>
         <Image
           data={data.image}
           alt={data.name}
@@ -28,12 +28,10 @@ export default function Bio({ data }) {
           }}
         />
       </Box>
-      <Box>
-        <div sx={{ px: 3, textAlign: ["center", "left"] }}>
-          <Themed.p sx={{ mt: 0, fontFamily: "heading" }}>{data.name}</Themed.p>
-          <div className="bio">
-            <MDXRenderer>{data.bio.childMdx.body}</MDXRenderer>
-          </div>
+      <Box sx={{ textAlign: ["center", "left"] }}>
+        <Themed.h4 sx={{ my: 0 }}>{data.name}</Themed.h4>
+        <div className="bio">
+          <MDXRenderer>{data.bio.childMdx.body}</MDXRenderer>
         </div>
       </Box>
     </Grid>
