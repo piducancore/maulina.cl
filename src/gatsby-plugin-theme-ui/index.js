@@ -235,6 +235,7 @@ const theme = {
       bg: "gray",
       color: "background",
       py: 3,
+      zIndex: 102,
     },
   },
   grids: {
