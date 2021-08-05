@@ -68,10 +68,6 @@ const theme = {
     },
   },
   styles: {
-    Container: {
-      p: 3,
-      maxWidth: 1024,
-    },
     root: {
       fontFamily: "body",
       lineHeight: "body",
@@ -214,12 +210,12 @@ const theme = {
       maxWidth: "container",
       mx: "auto",
       px: 2,
-      text: { p: 0, maxWidth: 960 },
+      text: { maxWidth: 960 },
     },
     header: {
       width: "100%",
-      py: 2,
-      px: 1,
+      py: 1,
+      bg: "background",
       // zIndex: 100,
       // position: "sticky",
       // top: 0,
@@ -229,6 +225,11 @@ const theme = {
       minHeight: "calc(100vh - 88px)",
       flex: "1 1 auto",
       pb: 6,
+      // cover: {
+      //   flexGrow: 99999,
+      //   flexBasis: 0,
+      //   minWidth: 320,
+      // },
     },
     footer: {
       width: "100%",
