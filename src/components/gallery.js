@@ -10,7 +10,14 @@ export default function GalleryFlex({ children, size, ...props }) {
     <div {...props}>
       {rows.map((elements, index) => {
         return (
-          <Flex key={index} sx={{ flexDirection: ["column", "row"] }}>
+          <Flex
+            key={index}
+            sx={{
+              flexDirection: ["column", "row"],
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             {elements}
           </Flex>
         )
