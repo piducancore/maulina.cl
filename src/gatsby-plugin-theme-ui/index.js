@@ -276,8 +276,9 @@ const theme = {
       cursor: "pointer",
       letterSpacing: 4,
       "&:hover": {
-        bg: "background",
-        color: "text",
+        border: theme => `1px solid ${theme.colors.secondary}`,
+        bg: "secondary",
+        color: "background",
       },
     },
   },
