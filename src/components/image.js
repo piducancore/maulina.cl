@@ -4,10 +4,9 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function Image({ data, imgStyle, overlay, ...props }) {
   return (
-    <div key={data.title} sx={{ position: "relative", display: "flex" }}>
+    <div sx={{ position: "relative", display: "flex" }}>
       <GatsbyImage
         image={data.gatsbyImageData}
-        alt={data.title}
         objectFit="cover"
         imgStyle={{
           mixBlendMode: "multiply",
