@@ -2,6 +2,7 @@
 import { jsx, Grid, Box, Themed } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { alpha } from "@theme-ui/color"
+import { Link } from "gatsby"
 
 import Layout from "./layout"
 import Gallery from "./gallery"
@@ -56,6 +57,31 @@ export default function Profile({ current, prev, next }) {
             alt={current.full_name}
             objectFit="contain"
           />
+        </Box>
+      </Grid>
+      <Themed.h3 sx={{ textAlign: "center" }}>
+        Otras fotógrafas recomendadas
+      </Themed.h3>
+      <Grid columns={[1, 2]}>
+        <Box sx={{ textAlign: "left" }}>
+          <Themed.a as={Link} to={"/" + prev.username} sx={{ mx: "auto" }}>
+            <Image
+              data={prev.profile_picture}
+              alt={prev.full_name}
+              sx={{ mx: "auto", height: 320 }}
+            />
+            <Themed.h4>{prev.full_name}</Themed.h4>
+          </Themed.a>
+        </Box>
+        <Box sx={{ textAlign: "right" }}>
+          <Themed.a as={Link} to={"/" + next.username} sx={{ mx: "auto" }}>
+            <Image
+              data={next.profile_picture}
+              alt={next.full_name}
+              sx={{ mx: "auto", height: 320 }}
+            />
+            <Themed.h4>{next.full_name}</Themed.h4>
+          </Themed.a>
         </Box>
       </Grid>
     </Layout>
