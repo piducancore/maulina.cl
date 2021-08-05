@@ -10,9 +10,12 @@ import MenuIcon from "./menu-icon"
 import useStore from "../state"
 
 const Header = props => {
-  const { isMenuOpen, toggleMenu } = useStore()
+  const { isMenuOpen, toggleMenu, toggleHeader } = useStore()
   return (
-    <Headroom>
+    <Headroom
+      onPin={() => toggleHeader(true)}
+      onUnpin={() => toggleHeader(false)}
+    >
       <header sx={{ variant: "layout.header" }} {...props}>
         <Container>
           <Flex
