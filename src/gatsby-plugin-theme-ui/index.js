@@ -75,6 +75,11 @@ const theme = {
       "*:not(.headroom)": {
         transition: ".2s",
       },
+      ".bio": {
+        p: {
+          fontSize: 0,
+        },
+      },
       ".headroom": { zIndex: "100 !important" },
       "*:focus": {
         outline: "none",
@@ -122,8 +127,7 @@ const theme = {
       fontSize: 1,
     },
     p: {
-      fontSize: 2,
-      // textAlign: "justify",
+      fontSize: 1,
     },
     a: {
       color: "primary",
@@ -210,11 +214,11 @@ const theme = {
       maxWidth: "container",
       mx: "auto",
       px: 2,
-      text: { maxWidth: 960 },
+      text: { px: 0, maxWidth: 960 },
     },
     header: {
       width: "100%",
-      py: 1,
+      py: 2,
       bg: "background",
       // zIndex: 100,
       // position: "sticky",
@@ -264,6 +268,16 @@ const theme = {
       "&:hover": {
         bg: "background",
         color: "secondary",
+      },
+    },
+    secondary: {
+      border: theme => `1px solid ${theme.colors.text}`,
+      borderRadius: 360,
+      cursor: "pointer",
+      letterSpacing: 4,
+      "&:hover": {
+        bg: "background",
+        color: "text",
       },
     },
   },
