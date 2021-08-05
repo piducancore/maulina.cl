@@ -39,7 +39,7 @@ export default function Footer() {
             />
             <Themed.p sx={{ mt: "auto", ml: 3, fontSize: 0 }}>
               Proyecto financiado por el Fondo Nacional de Desarrollo Cultural y
-              las Artes, 2021.
+              las Artes, FONDART Regional 2021.
             </Themed.p>
           </Flex>
         </Grid>
