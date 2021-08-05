@@ -24,31 +24,33 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // create a page for each profile
   profiles.map(async (profile, idx) => {
-    const prev = idx === profiles.length - 1 ? null : profiles[idx + 1].node
-    const next = idx === 0 ? null : profiles[idx - 1]
+    const next = idx === profiles.length - 1 ? profiles[0] : profiles[idx + 1]
+    const prev = idx === 0 ? profiles[profiles.length - 1] : profiles[idx - 1]
     createPage({
       path: profile.username,
       component: require.resolve("./src/templates/profile"),
       context: {
-        contentful_id: profile.contentful_id,
         type: "profilePage",
-        prev,
-        next,
+        contentful_id: profile.contentful_id,
+        prev: prev.contentful_id,
+        next: next.contentful_id,
       },
     })
   })
 
+  // create a page for each article
   articles.map(async (article, idx) => {
-    const prev = idx === articles.length - 1 ? null : articles[idx + 1].node
-    const next = idx === 0 ? null : articles[idx - 1]
+    const next = idx === articles.length - 1 ? articles[0] : articles[idx + 1]
+    const prev = idx === 0 ? articles[articles.length - 1] : articles[idx - 1]
+
     createPage({
       path: slugify(article.title).toLowerCase(),
       component: require.resolve("./src/templates/article"),
       context: {
-        contentful_id: article.contentful_id,
         type: "articlePage",
-        prev,
-        next,
+        contentful_id: article.contentful_id,
+        prev: prev.contentful_id,
+        next: next.contentful_id,
       },
     })
   })

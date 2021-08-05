@@ -7,14 +7,14 @@ import Layout from "./layout"
 import Gallery from "./gallery"
 import Image from "./image"
 
-export default function Profile({ data }) {
-  const photos = [data.featured].concat(data.gallery)
+export default function Profile({ current, prev, next }) {
+  const photos = [current.featured].concat(current.gallery)
   return (
     <Layout
       seo={{
-        title: data.full_name,
-        description: data.presentation.presentation,
-        image: data.profile_picture.file.url,
+        title: current.full_name,
+        description: current.presentation.presentation,
+        image: current.profile_picture.file.url,
       }}
     >
       <Gallery size={4}>
@@ -36,11 +36,11 @@ export default function Profile({ data }) {
             bg: alpha("background", 0.8),
           }}
         >
-          <Themed.h3 sx={{ mb: 0 }}>{data.full_name}</Themed.h3>
+          <Themed.h3 sx={{ mb: 0 }}>{current.full_name}</Themed.h3>
           <Themed.h3 sx={{ mt: 0 }}>
-            {data.residence}, {data.birthdate.slice(0, 4)}
+            {current.residence}, {current.birthdate.slice(0, 4)}
           </Themed.h3>
-          <MDXRenderer>{data.presentation.childMdx.body}</MDXRenderer>
+          <MDXRenderer>{current.presentation.childMdx.body}</MDXRenderer>
         </Box>
         <Box
           sx={{
@@ -52,8 +52,8 @@ export default function Profile({ data }) {
           }}
         >
           <Image
-            data={data.profile_picture}
-            alt={data.full_name}
+            data={current.profile_picture}
+            alt={current.full_name}
             objectFit="contain"
           />
         </Box>

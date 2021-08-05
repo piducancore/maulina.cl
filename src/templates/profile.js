@@ -3,14 +3,27 @@ import { graphql } from "gatsby"
 
 import Profile from "../components/profile"
 
-export default function ProfilePage({ data, ...props }) {
-  const { contentfulArtista } = data
-  return <Profile data={contentfulArtista} />
+export default function ProfilePage({ data }) {
+  return <Profile {...data} />
 }
 
 export const ProfileQuery = graphql`
-  query ProfileQuery($contentful_id: String!) {
-    contentfulArtista(contentful_id: { eq: $contentful_id }) {
+  query ProfileQuery($contentful_id: String!, $next: String!, $prev: String!) {
+    next: contentfulArtista(contentful_id: { eq: $next }) {
+      full_name
+      username
+      profile_picture {
+        gatsbyImageData
+      }
+    }
+    prev: contentfulArtista(contentful_id: { eq: $prev }) {
+      full_name
+      username
+      profile_picture {
+        gatsbyImageData
+      }
+    }
+    current: contentfulArtista(contentful_id: { eq: $contentful_id }) {
       contentful_id
       full_name
       username

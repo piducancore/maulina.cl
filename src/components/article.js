@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Themed, Container, Flex } from "theme-ui"
+import { jsx, Themed, Container, Flex, Grid } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage } from "gatsby-plugin-image"
 
@@ -8,7 +8,7 @@ import Image from "./image"
 
 function Bio({ data }) {
   return (
-    <Flex sx={{ alignItems: "end" }}>
+    <Grid columns={[1, "120px auto"]} sx={{ my: 5 }}>
       <Image
         data={data.image}
         alt={data.name}
@@ -27,14 +27,16 @@ function Bio({ data }) {
       />
       <div sx={{ px: 3 }}>
         <Themed.p sx={{ mt: 0, fontFamily: "heading" }}>{data.name}</Themed.p>
-        <MDXRenderer>{data.bio.childMdx.body}</MDXRenderer>
+        <div className="bio">
+          <MDXRenderer>{data.bio.childMdx.body}</MDXRenderer>
+        </div>
       </div>
-    </Flex>
+    </Grid>
   )
 }
 
-export default function Article({ data }) {
-  const { title, content, date, image, author } = data
+export default function Article({ current }) {
+  const { title, content, date, image, author } = current
   return (
     <Layout seo={{ title }}>
       <Container sx={{ variant: "layout.container.text" }}>
@@ -58,7 +60,7 @@ export default function Article({ data }) {
           <Themed.h4 sx={{ my: 0, ml: 2 }}>{author.name}</Themed.h4>
         </Flex>
         <MDXRenderer>{content.childMdx.body}</MDXRenderer>
-        <Bio data={data.author} />
+        <Bio data={author} />
       </Container>
     </Layout>
   )
