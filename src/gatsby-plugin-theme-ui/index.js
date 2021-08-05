@@ -127,7 +127,7 @@ const theme = {
       fontSize: 1,
     },
     p: {
-      fontSize: 1,
+      fontSize: [0, 1],
     },
     a: {
       color: "primary",
