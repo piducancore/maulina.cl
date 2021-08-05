@@ -2,7 +2,6 @@
 import { jsx, Themed, Container, Flex } from "theme-ui"
 import { Link } from "gatsby"
 import slugify from "slugify"
-import { alpha } from "@theme-ui/color"
 
 import Logo from "./logo"
 import MenuIcon from "./menu-icon"
@@ -19,31 +18,34 @@ export default function DrawerMenu() {
         height: "100vh",
         width: ["100%", 256],
         left: isMenuOpen ? "0%" : "-100%",
-        bg: alpha("secondary", 0.88),
-        // display: "flex",
-        // flexDirection: "column",
-        // justifyContent: "center",
+        bg: "secondary",
         zIndex: 101,
         opacity: isMenuOpen ? 1 : 0,
       }}
     >
-      <Container sx={{ height: "100%" }}>
-        <Flex variant="layout.header" bg="#00000000">
-          <MenuIcon
-            inverted
-            onClick={toggleMenu}
-            sx={{
-              cursor: "pointer",
-              my: "auto",
-              mr: ["auto", 0],
-              ml: [0, "auto"],
-            }}
-          />
-          <div sx={{ my: "auto", display: "flex", height: [32, 88] }}>
-            <Logo height={"100%"} inverted />
-          </div>
-        </Flex>
-        <div mt={5}>
+      <div sx={{ height: "100%" }}>
+        <header sx={{ variant: "layout.header", bg: "none" }}>
+          <Container>
+            <Flex
+              sx={{
+                width: "100%",
+                flexDirection: "row-reverse",
+                alignItems: "center",
+              }}
+            >
+              <Link to="/" sx={{ display: "flex", height: 32 }}>
+                <Logo height={"100%"} inverted={isMenuOpen} />
+              </Link>
+              <MenuIcon
+                inverted
+                onClick={toggleMenu}
+                sx={{ mr: "auto", cursor: "pointer" }}
+              />
+            </Flex>
+          </Container>
+        </header>
+
+        <Container>
           {items.map(item => (
             <Themed.p key={item}>
               <Themed.a
@@ -56,8 +58,8 @@ export default function DrawerMenu() {
               </Themed.a>
             </Themed.p>
           ))}
-        </div>
-      </Container>
+        </Container>
+      </div>
     </div>
   )
 }
