@@ -1,10 +1,3 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
@@ -18,9 +11,9 @@ function Seo({ description, lang, meta, title, image }) {
           siteMetadata {
             title
             description
-            siteUrl
+            url
             author
-            defaultImage: image
+            image
           }
         }
       }
@@ -28,61 +21,34 @@ function Seo({ description, lang, meta, title, image }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
-  const baseUrl = site.siteMetadata.siteUrl
-  const defaultImage = baseUrl + site.siteMetadata.defaultImage
-
+  const metaTitle = site.siteMetadata.title
+  const metaImage = image || site.siteMetadata.url + site.siteMetadata.image
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
+      htmlAttributes={{ lang }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={metaTitle ? `%s | ${metaTitle}` : null}
       meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:image`,
-          content: image || defaultImage,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
+        { name: `description`, content: metaDescription },
+        // Facebook meta
+        { property: `og:title`, content: `${title} | ${metaTitle}` },
+        { property: `og:description`, content: metaDescription },
+        { property: `og:image`, content: metaImage },
+        { property: `og:type`, content: `website` },
+        // Twitter Card data
+        { name: `twitter:card`, content: `summary_large_image` },
+        { name: `twitter:title`, content: `${title} | ${metaTitle}` },
+        { name: `twitter:description`, content: metaDescription },
+        { name: `twitter:image`, content: metaImage },
+        { name: `twitter:site`, content: site.siteMetadata.author },
+        { name: `twitter:creator`, content: site.siteMetadata.author || `` },
       ].concat(meta)}
     />
   )
 }
 
 Seo.defaultProps = {
-  lang: `en`,
+  lang: `es`,
   meta: [],
   description: ``,
 }

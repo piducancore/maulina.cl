@@ -5,7 +5,7 @@ module.exports = {
     description: `comunidad de fotografía.`,
     author: `@maulina.cl`,
     image: `/maulina.jpg`,
-    siteUrl: `https://maulina.cl`,
+    url: `https://maulina.cl`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
