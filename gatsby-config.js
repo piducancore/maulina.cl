@@ -4,7 +4,7 @@ module.exports = {
     title: `Maulina`,
     description: `comunidad de fotografía.`,
     author: `@maulina.cl`,
-    image: `/maulina.svg`,
+    image: `/maulina.jpg`,
     siteUrl: `https://maulina.cl`,
   },
   plugins: [
