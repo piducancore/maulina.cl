@@ -34,6 +34,7 @@ function Seo({ description, lang, meta, title, image }) {
         { property: `og:title`, content: `${title} | ${metaTitle}` },
         { property: `og:description`, content: metaDescription },
         { property: `og:image`, content: metaImage },
+        { property: `og:url`, content: site.siteMetadata.url },
         { property: `og:type`, content: `website` },
         // Twitter Card data
         { name: `twitter:card`, content: `summary_large_image` },
