@@ -22,9 +22,9 @@ const Layout = ({ children, /* location, */ pageContext, seo }) => {
   return (
     <React.Fragment>
       <Seo
-        title={seo?.title || pageContext?.frontmatter?.title || ""}
-        description={seo?.description}
-        image={seo?.image}
+        title={seo?.title || pageContext?.frontmatter?.title}
+        description={seo?.description || pageContext?.frontmatter?.description}
+        image={seo?.image || pageContext?.frontmatter?.image}
       />
       <DrawerMenu />
       <Header />
