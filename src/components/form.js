@@ -34,7 +34,7 @@ export default function Form() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          spreadsheetId: process.env.SPREADSHEET_ID,
+          spreadsheetId: process.env.GATSBY_SPREADSHEET_ID,
           values: Object.values({ name, email, message }),
         }),
       })
