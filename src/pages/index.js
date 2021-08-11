@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui"
 import { graphql, Link } from "gatsby"
-import _ from "lodash"
 
 import Layout from "../components/layout"
 import Gallery from "../components/gallery"
@@ -16,12 +15,19 @@ export default function IndexPage({ data, location }) {
       })
     )
     .flat()
-  const shuffled = _.sampleSize(allPhotos, 32)
-
+  function shuffleArray(array) {
+    let tempArray = array
+    for (let i = tempArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[tempArray[i], tempArray[j]] = [tempArray[j], tempArray[i]]
+    }
+    return tempArray
+  }
+  const shuffled = shuffleArray(allPhotos)
   return (
     <Layout seo={{ title: "Inicio" }} location={location}>
       <Gallery size={4}>
-        {shuffled.map(photo => {
+        {shuffled.slice(-32).map(photo => {
           return (
             <Themed.a
               key={photo.contentful_id}
