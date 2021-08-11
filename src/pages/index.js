@@ -24,12 +24,7 @@ export default function IndexPage({ data, location }) {
         {shuffled.map(photo => {
           return (
             <Themed.a key={photo.title} as={Link} to={"/" + photo.username}>
-              <Image
-                data={photo}
-                key={photo.title}
-                alt={photo.title}
-                overlay={photo.title}
-              />
+              <Image data={photo} alt={photo.title} overlay={photo.title} />
             </Themed.a>
           )
         })}
