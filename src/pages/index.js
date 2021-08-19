@@ -2,61 +2,16 @@
 import { jsx, Themed } from "theme-ui"
 import { graphql, Link } from "gatsby"
 import _ from "lodash"
+import Loadable from "@loadable/component"
 
 import Layout from "../components/layout"
-import Gallery from "../components/gallery"
-import Image from "../components/image"
+
+const LoadableGallery = Loadable(() => import("../components/loadable-gallery"))
 
 export default function IndexPage({ data, location }) {
-  const allPhotos = data.allContentfulArtista.nodes
-    .map(({ username, featured, gallery }) =>
-      [featured].concat(gallery).map(photo => {
-        photo.username = username
-        return photo
-      })
-    )
-    .flat()
-  const shuffled = _.sampleSize(allPhotos, 32)
-
   return (
     <Layout seo={{ title: "Inicio" }} location={location}>
-      <Gallery size={4}>
-        {shuffled.map(photo => {
-          return (
-            <Themed.a key={photo.title} as={Link} to={"/" + photo.username}>
-              <Image data={photo} alt={photo.title} overlay={photo.title} />
-            </Themed.a>
-          )
-        })}
-      </Gallery>
+      <LoadableGallery />
     </Layout>
   )
 }
-
-export const query = graphql`
-  query IndexQuery {
-    allContentfulArtista {
-      nodes {
-        username
-        featured {
-          contentful_id
-          title
-          gatsbyImageData(
-            height: 560
-            quality: 100
-            placeholder: DOMINANT_COLOR
-          )
-        }
-        gallery {
-          contentful_id
-          title
-          gatsbyImageData(
-            height: 560
-            quality: 100
-            placeholder: DOMINANT_COLOR
-          )
-        }
-      }
-    }
-  }
-`
