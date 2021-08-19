@@ -1,4 +1,11 @@
+const loadablePlugin = require("@loadable/webpack-plugin")
 const slugify = require("slugify")
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    plugins: [new loadablePlugin()],
+  })
+}
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
