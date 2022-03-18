@@ -40,6 +40,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-mdx-embed`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
