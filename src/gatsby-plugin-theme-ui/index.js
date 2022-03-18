@@ -98,6 +98,9 @@ const theme = {
       body: {
         m: 0,
       },
+      iframe: {
+        width: "100%",
+      },
       overflowY: "scroll",
     },
     h1: {
